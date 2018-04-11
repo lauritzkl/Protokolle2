@@ -1,6 +1,6 @@
 \section{Auswertung}
 
-Die mittlere freie Weglänge $\overline{w}$ und den Dampfdruck $p_\text{sät}$, der bei den verschiedenen
+Die mittlere freie Weglänge $\overline{w}$ und den Dampfdruck $p_\text{sätt}$, der bei den verschiedenen
 Messreihen vorlag lässt sich mithilfe der Gleichung \ref{eq:6} bestimmen. Die Daten
 sind in Tabelle \ref{tab:1} dargestellt.
 
@@ -11,7 +11,7 @@ sind in Tabelle \ref{tab:1} dargestellt.
   \label{tab:1}
   \begin{tabular}{c c c}
     \toprule
-    $T \, / \, K$ & $\overline{w} \, / \, cm$ & $p_\text{sät} \, / \, mbar$ \\
+    $T \, / \, K$ & $\overline{w} \, / \, cm$ & $p_\text{sätt} \, / \, mbar$ \\
     \midrule
     298,55 & $\num{5.30e-1}$ & $\num{5.47e-3}$ \\
     377,15 & $\num{4.36e-3}$ & $\num{6.60e-1}$ \\
@@ -81,7 +81,7 @@ Fall $ K = \SI{1.16}{\volt}$ ist.
 
 Die zweite Messreiche wird bei $ T = \SI{145.5}{\celsius}$ durchgeführt.
 Aufgrund der höheren Temperatur sind die bestimmten Werte auch anders als bei der
-ersten Messreihe. Die berechneten Steigungen sind in Tabelle \ref{tab:2} dargestellt
+ersten Messreihe. Die berechneten Steigungen sind in Tabelle \ref{tab:3} dargestellt
 und auch in diesem Fall werden die differentiellen Energieverteilungen gegen
 die Bremsspannung in Abbildung \ref{abb:4} dargestellt.
 
@@ -89,7 +89,7 @@ die Bremsspannung in Abbildung \ref{abb:4} dargestellt.
   \centering
   \caption{Darstellung der Steigungen a in Abhängigkeit von der Bremsspannung $U_a$
   der zweiten Messreihe.}
-  \label{tab:2}
+  \label{tab:3}
   \begin{tabular}{c c}
     \toprule
     $U_a \, / \, V$ & $a$ \\
@@ -131,3 +131,75 @@ ersten, weil bei der höheren Temperatur die mittlere freie Weglänge viel gerin
 und die Elektronen mit einer höheren Wahrscheinlichkeit mit den Hg-Atomen wechselwirken.
 
 \subsection{Franck-Hertz-Kurve}
+Aus der in Abbildung \ref{abb:} gemessenen Franck-Hertz-Kurve wird nun die Anregungsenergie
+des Hg-Atoms bestimmt indem die Abstände der Maxima gemessen werden. Die Ergebnisse
+aus der Messung sind in Tabelle \ref{tab:4} gezeigt. Dabei gibt k an welches Maximum verwendet
+wurde und $\Delta U = U_{k+1}-U_k$.
+
+\begin{table}[H]
+  \centering
+  \caption{Abstände der Maxima aus der Franck-Hertz-Kurve.}
+  \label{tab:4}
+  \begin{tabular}{c c}
+    \toprule
+    $k$ & $\Delta U$ \\
+    \midrule
+    1 & 4,60 \\
+    2 & 4,53 \\
+    3 & 4,77 \\
+    4 & 4,10 \\
+    5 & 4,60 \\
+    6 & 5,00 \\
+    7 & 5,62 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Aus den gemessenen Werten lässt sich nun der Mittelwert und die Standardabweichung
+mithilfe der folgenden Formeln bestimmen.
+
+\begin{gather*}
+  \overline{U} = \frac{1}{N} \sum^N_{i=1} U_i \\
+  \Delta \overline{U} = \frac{1}{\sqrt{N}} \sqrt{\frac{1}{N-1} \sum^N_{i=1}(U_i-\overline{U})^2}
+\end{gather*}
+
+Die Anregungsenergie lasst sich aus dem Mittelwert bestimmen indem der gemessene Abstand
+mit der Elementarladung multipliziert wird.
+
+\begin{equation*}
+  \overline{U} = \SI{4.746(437)}{\electronvolt}.
+\end{equation*}
+
+Mithilfe der Gleichung \ref{eq:3} und der Relation $\lambda = \frac{c}{\nu}$ kann
+nun die Wellenlänge der emittierten elektromagnetischen Strahlung bestimmt werden
+mit der Formel
+
+\begin{equation*}
+  \lambda = h \frac{c}{E}
+\end{equation*}
+
+Der Fehler der Wellenlänge wird mit der Gauß´schen Fehlerfortpflanzung berechnet:
+
+\begin{equation*}
+  \Delta \lambda = \sqrt{\left(-\frac{hc}{E^2}\right)^2 \cdot \Delta E^2}
+\end{equation*}
+
+Damit ergibt sich für die Wellenlänge:
+
+\begin{equation*}
+  \SI{261(24)}{\nano\meter}
+\end{equation*}
+
+\subsection{Ionisierungsspannung}
+
+In diesem Teil wird die Ionisationsspannung von Hg bestimmt. Die gemessenen Werte
+von diesem Aufgabenteil sind in Abbildung \ref{abb:} dargestellt. Diese Kurve unterscheidet sich
+von der erwarteten Theoriekurve. Auf die möglichen Gründe wird in der Diskussion eingegangen.
+Für die bestimmung der Ionisationsspannung wird das erste Maximum der Kurve verwendet.
+Das Maximum liegt bei einer Spannung von \SI{31.92}{\volt}. Von dieser Spannung muss nun noch
+das Kontaktpotential, was zuvor bestimmt wurde, abgezogen werden um die Ionisationsspannung
+zu erhalten.
+
+\begin{equation*}
+  U_\text{ion} = \SI{30.76}{\volt}
+\end{equation*}
