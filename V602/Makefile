@@ -11,8 +11,8 @@ endif
 all: build/main.pdf
 
 # hier Python-Skripte:
-#build/plot.pdf: content/plot1.py header.tex | build
-	#TEXINPUTS="$(call translate,$(pwd):)" python content/plot1.py
+build/plot.pdf: content/plot1.py header.tex | build
+	TEXINPUTS="$(call translate,$(pwd):)" python content/plot1.py
 	#TEXINPUTS="$(call translate,$(pwd):)" python content/plot2.py
 
 # hier weitere Abhängigkeiten für build/main.pdf deklarieren:
