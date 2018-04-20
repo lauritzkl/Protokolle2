@@ -12,7 +12,7 @@ mpl.rcParams.update({
 })
 
 
- y, x_1 = np.genfromtxt('content/data1.txt', unpack=True)
+y, x_1 = np.genfromtxt('content/data1.txt', unpack=True)
 
 plt.plot(x_1, y, r'bx', label=r'Messwerte')
 #plt.axvline(9.84, color='black', linestyle=':', label='Maximum')
@@ -28,8 +28,8 @@ errors = np.sqrt(np.diag(covariance_matrix))
 plt.plot(x_1, f(x_1, *params), 'b-', label='Regression')
 plt.legend()
 plt.grid()
-plt.xlabel(r'$Z^2$')
-plt.ylabel(r'$\sqrt E / keV$')
+plt.xlabel(r'$Z$')
+plt.ylabel(r'$\sqrt E / eV$')
 plt.tight_layout()
 plt.savefig('plot1.pdf')
 
