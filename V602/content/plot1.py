@@ -12,9 +12,15 @@ mpl.rcParams.update({
 })
 
 
+<<<<<<< HEAD
 y, x_1 = np.genfromtxt('content/data1.txt', unpack=True)
+||||||| merged common ancestors
+ y, x_1 = np.genfromtxt('content/data1.txt', unpack=True)
+=======
+y, x_1= np.genfromtxt('content/data1.txt', unpack=True)
+>>>>>>> bilder
 
-plt.plot(x_1, y, r'bx', label=r'Messwerte')
+plt.plot(x_1, y, r'rx', label=r'Messwerte')
 #plt.axvline(9.84, color='black', linestyle=':', label='Maximum')
 
 def f(x_1, m, b):
@@ -25,7 +31,7 @@ params, covariance_matrix = curve_fit(f, x_1, y)
 
 errors = np.sqrt(np.diag(covariance_matrix))
 
-plt.plot(x_1, f(x_1, *params), 'b-', label='Regression')
+plt.plot(x_1, f(x_1, *params), 'k-', label='Regression')
 plt.legend()
 plt.grid()
 plt.xlabel(r'$Z$')
