@@ -12,13 +12,9 @@ mpl.rcParams.update({
 })
 
 
-<<<<<<< HEAD
+
 y, x_1 = np.genfromtxt('content/data1.txt', unpack=True)
-||||||| merged common ancestors
- y, x_1 = np.genfromtxt('content/data1.txt', unpack=True)
-=======
-y, x_1= np.genfromtxt('content/data1.txt', unpack=True)
->>>>>>> bilder
+
 
 plt.plot(x_1, y, r'rx', label=r'Messwerte')
 #plt.axvline(9.84, color='black', linestyle=':', label='Maximum')
