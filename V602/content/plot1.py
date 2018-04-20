@@ -31,7 +31,7 @@ plt.grid()
 plt.xlabel(r'$Z$')
 plt.ylabel(r'$\sqrt E / eV$')
 plt.tight_layout()
-plt.savefig('plot1.pdf')
+plt.savefig('build/plot1.pdf')
 
 print('m=', params[0], '+-', errors[0])
 print('b=', params[1], '+-', errors[1])
