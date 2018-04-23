@@ -31,7 +31,7 @@ plt.plot(x_1, f(x_1, *params), 'k-', label='Regression')
 plt.legend()
 plt.grid()
 plt.xlabel(r'$Z$')
-plt.ylabel(r'$\sqrt E / eV$')
+plt.ylabel(r'$\sqrt(E) / \sqrt(eV)$')
 plt.tight_layout()
 plt.savefig('plot1.pdf')
 
