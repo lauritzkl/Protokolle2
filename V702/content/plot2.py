@@ -12,7 +12,7 @@ mpl.rcParams.update({
 })
 
 U = 60
-dU = 4.243
+dU = 4.24
 x, y_1 = np.genfromtxt('content/data2.txt', unpack=True)
 
 y_2 = (y_1 - U)
@@ -20,7 +20,8 @@ y_2 = (y_1 - U)
 
 y = np.log(y_2)
 
-yerror = np.array(dU/y_2)
+yerr = np.array(dU/y_2)
+
 
 def f(x, m, b):
     y = m*x+b
@@ -32,12 +33,13 @@ errors = np.sqrt(np.diag(covariance_matrix))
 
 plt.plot(x, y, r'rx', label='Messwerte')
 plt.plot(x, f(x, *params), 'k-', label='Regression')
-plt.errorbar(x, y, yerr=yerror, xerr=None, fmt='none', ecolor='0.2')
+plt.errorbar(x, y, yerr, xerr=None, fmt='none', ecolor='0.2')
 plt.legend()
 plt.grid()
 plt.ylabel(r'$\ln(N_{\Delta t})$')
 plt.xlabel(r'$t \, / \, \si{\second}$')
 plt.tight_layout()
 plt.savefig('plot2.pdf')
+print(yerr)
 print('m=', params[0], '+-', errors[0])
 print('b=', params[1], '+-', errors[1])
