@@ -31,29 +31,28 @@ der Abbilung (\ref{abb:6}) graphisch dargestellt.
   \label{abb:6}
 \end{figure}
 Es ist zu beachten, dass der erste Messwert (rötlich hinterlegt) nicht in der Auswertung berücksichtig wird,
-da sie physikalisch nicht sinnvoll ist.
-Die Länge des Plateaus beginnt bei $\SI{400}{\volt}$ und endet bei $\SI{550}{\volt}$. Für diesen Kurvenabschnitt wird eine lineare Auschgleichsrechnung
-\begin{align}
-  y & = m \cdot x + b \label{eq:9}\\
-  m & = \frac {\bar{xy} - \bar{x} \cdot \bar{y}} {\bar{x^2} -\bar{x}^2}&  \label{fel:1}\\
-  b & = \frac {\bar{y} \cdot \bar{x}^2 - \bar{xy} \cdot \bar{x}} {\bar{x^2}-\bar{x}^2}& \label{fel:2}
-\end{align}
-durchgeführt.
+da er physikalisch nicht sinnvoll ist.
+Das Plateau beginnt bei $\SI{400}{\volt}$ und endet bei $\SI{550}{\volt}$.
+Für diesen Kurvenabschnitt wird eine lineare Auschgleichsrechnung mit Python 3.6 durchgeführt.
 Somit ergibt sich für die Parameter der Geraden:
+
 \begin{itemize}
-  \item m = \SI{1.55 \pm 0,55}{1\per\volt}
-  \item b = 12429,16 \pm \, 264,59
+  \item m = \SI{1.55(55)}{\per\volt}
+  \item b = \num{12429.16(26459)}
 \end{itemize}
 
 Anschließend wird die Plateau-Steigerung in $\%$ pro $100 \, V$ mit
+
 \begin{equation*}
   s = \frac{f(500)}{f(400)} \cdot 100 - 100 \%
 \end{equation*}
+
 bestimmt.
-Die Steigerung beträgt $s = \SI{1.2 \pm 0.4}{\%\per\volt}$.
+Die Steigerung beträgt $s = \num{1.2(4)} \%$.
+
 \subsection{Totzeit des Zählrohrs}
-Wie in der Durchführung angesprochen wurde, wird zunächst die Totzeit sowie die Erhohlungszeit mit Hilfe des Oszilloskops
-abgelesen. In der Tabelle (\ref{tab:2}) werden die Ablesungen dargestellt und anschließend wird der Mittelwert sowie die Standardabweichung
+Wie in der Durchführung angesprochen wurde, wird zunächst die Totzeit sowie die Erhohlungszeit von dem Oszilloskop
+abgelesen. In der Tabelle (\ref{tab:2}) sind die Messwerte dargestellt und anschließend wird der Mittelwert sowie die Standardabweichung
 bestimmt.
 \begin{table}[H]
   \centering
@@ -68,40 +67,55 @@ bestimmt.
     \bottomrule
   \end{tabular}
 \end{table}
-Für den Mittelwert sowie die Standardabweichung werden die Formel (\ref{fel:3}) und (\ref{fel:4})
+Für den Mittelwert sowie die Standardabweichung werden die Formeln (\ref{fel:3}) und (\ref{fel:4})
+
 \begin{equation}
     \bar{x} = \frac{1}{N} \sum_{i=1}^{N} x_i
     \label{fel:3}
 \end{equation}
+
 \begin{equation}
   \Delta \bar{x} = \frac{1}{\sqrt{N}\sqrt{N-1}} \sqrt{\sum_{i}(x_i-\bar{x})^2}
   \label{fel:4}
 \end{equation}
+
 verwendet. Es folgt für die beiden Zeiten folgende Werte:
+
 \begin{itemize}
-  \item $T_\text{tot} = \SI{0,2 \pm 0,01}{\second}$
-  \item $T_\text{re} = \SI{0,67 \pm 0,19}{\second}$
+  \item $T_\text{tot} = \SI{0.20(1)}{\second}$
+  \item $T_\text{re} = \SI{0.67(19)}{\second}$
 \end{itemize}
+
 Nun wird die Totzeit mithilfe der Zwei-Quellen-Methode bestimmt.
 Die Messaufnahmen für die beiden Präperate ergeben:
+
 \begin{itemize}
   \item $N_1 = 13100$
   \item $N_2 = 1393$
   \item $N_{1+2} = 14668$
 \end{itemize}
+
 Zur Berechnung der Totzeit wird die Formel (\ref{eq:2}) verwendet.
-Das Ergebnis  für die Totzeit lautet:
+Da der Messwert $N_{1+2}$ größer ist als $N_1 + N_2$ bei dieser Formel eine
+negative Totzeit herauskommen. Deshalb wird der Betrag des Ergebnisses genommen.
+Das Ergebnis  für die Totzeit lautet somit:
+
 \begin{equation*}
-  T_{Totzeit} = (-5 \pm 5) \cdot 10^{-6} \, s
+  T_{Totzeit} = (5 \pm 5) \cdot 10^{-6} \, s
 \end{equation*}
-Die Totzeit ist physikalisch nicht sinnvoll, da es keine negative Zeit gibt.
+
+
 \subsection{Messung der freigesetzen Ladungsmengen}
+
 Für die Berechnung der Ladungsmenge wird die Formel (\ref{eq:1}) umgestellt
+
 \begin{equation*}
-  \Delta Q =\underbrace{n}_{\mathclap{\text{Anzahl}}} \cdot \overbrace{e}^{\mathclap{\text{Elementarladung}}} = \frac{I \cdot \Delta t}{Z}
+  \Delta Q =\overbrace{n}_{\mathclap{\text{Anzahl}}} \cdot \underbrace{e}^{\mathclap{\text{Elementarladung}}} = \frac{I \cdot \Delta t}{Z}
 \end{equation*}
+
 Da nur die Anzahl der Teilchen gesucht wird, wird die vorherige Gleichung noch durch die Elementarladung geteilt und in der Tabelle (\ref{tab:3})
 dargestellt. Dabei ist Z fehlerbehaftet.
+
 \begin{table}[H]
   \centering
   \caption{Messung bei $U=520 \, V$ und $\Delta t = 60 \, s$.}
