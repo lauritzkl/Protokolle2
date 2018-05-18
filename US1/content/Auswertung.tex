@@ -8,7 +8,7 @@ gezeigt.
 
 \begin{table}[H]
   \centering
-  \caption{Literaturwerte für Schallgeschwindigkeiten und akustischen Impedanzen \cite{2}.}
+  \caption{Literaturwerte für Schallgeschwindigkeiten und akustischen Impedanzen \cite{2} \cite{3}.}
   \label{tab:1}
   \begin{tabular}{c c c}
     \toprule
@@ -45,7 +45,7 @@ Tabelle \ref{tab:2} abgebildet. Für die Schallgeschwindigkeit wird die Formel \
 
 \begin{figure}[H]
   \centering
-  \includegraphics{content/Programm.png}
+  \includegraphics[width=\textwidth]{content/Programm.png}
   \caption{Darstellung des Messprogramms für den ersten Zylinder.}
   \label{abb:1}
 \end{figure}
@@ -90,7 +90,7 @@ Nun wird die Dämpfung bestimmt. Die Messwerte sind in Tabelle \ref{tab:3} darge
 Dazu wird die Gleichung \ref{eq:4} umgeformt zu:
 
 \begin{equation*}
- \ln(\frac{I(x)}{I_0}) = - \alpha x.
+ \ln \left(\frac{I(x)}{I_0}\right) = - \alpha x.
 \end{equation*}
 
 Nun lässt sich mit dueser Formel eine lineare Ausgleichsrechnung durchführen.
@@ -98,7 +98,7 @@ In Abbildung \ref{abb:2} sind die Messerte und die Ausgleichsrechnung gezeigt.
 
 \begin{figure}[H]
   \centering
-  \includegraphics{plot1.pdf}
+  \includegraphics[width=\textwidth]{plot1.pdf}
   \caption{Messwerte und lineare Ausgleichsrechnung der Dämpfung.}
   \label{abb:2}
 \end{figure}
@@ -140,7 +140,24 @@ bestimmt werden. Die Messwerte sind in Tabelle \ref{tab:4} dargestellt.
   \end{tabular}
 \end{table}
 
-Keine Ahnung
+Aus den Schallgeschindigkeiten wird nun mit den folgenden Formeln der Mittelwert und
+die Standartabweichung bestimmt:
+
+\begin{equation}
+  \overline{c} = \frac{1}{N} \sum_{i=1}^N c_i
+  \label{eq:7}
+\end{equation}
+
+\begin{equation}
+  \Delta \overline{c} = \frac{1}{\sqrt{N}} \sqrt{\frac{1}{1-N} \sum_{i=1}^N (c_i - \overline{c})^2}
+  \label{eq:8}
+\end{equation}
+
+Damit ergibt sich die Schallgeschwindigkeit von Acryl zu:
+
+\begin{equation*}
+  \overline{c_e} = \SI{2709.65(486)}{\meter\per\second}.
+\end{equation*}
 
 \subsection{Schallgeschindigkeit Durchschallungs-Verfahren}
 
@@ -167,3 +184,66 @@ Tabelle \ref{tab:5} dargestellt.
     \bottomrule
   \end{tabular}
 \end{table}
+
+Es wird wieder der Mittelwert und die Standartabweichung mit den Gleichungen \ref{eq:7} und
+\ref{eq:8} bestimmt. Damit ergibt sich die Schallgeschindigkeit zu:
+
+\begin{equation*}
+  \overline{c_d} = \SI{2676.82(1168)}{\meter\per\second}.
+\end{equation*}
+
+Damit ergibt sich eine Abweichung von $ 1.21 \% $ zu dem Impuls-Echo-Verfahren. Diese
+Abweichung liegt im Toleranzbereich.
+
+\subsection{Spektrale Analyse und Cepstrum}
+
+In diesem Teil wird ein Spektrum von Mehrfachreflexionen aufgenommen. Das aufgenommene
+Spektrum mir dem zugehörigen Cepstrum sind in Abbildung \ref{abb:3} dargestellt.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{content/FFT.png}
+  \caption{Darstellung eines Spektrums (links) und eines Cepstrums (rechts) von Mehrfachechos.}
+  \label{abb:3}
+\end{figure}
+
+Bei dem FFT und dem Cepstrum wird deutlich, dass sich dem Signal der Sonde die Mehrfachechos
+überlagern. Aus dem Cepstrum können die doppelten Laufzeiten der Platten abgelesen werden.
+Diese entsprechen den Peaks in dem Diagramm. Die doppelten Laufzeiten sind damit:
+
+\begin{itemize}
+  \item 1. Platte:$t_1 = \SI{4}{\micro\second}$
+  \item 2. Platte:$t_2 = \SI{4.6}{\micro\second}$
+\end{itemize}
+
+Mit einer Schallgeschindigkeit in Acryl von $c = \SI{2730}{\meter\per\second}$ ergibt sich
+eine Dicke von:
+
+\begin{itemize}
+  \item 1. Platte: $s_1 = \SI{5.46}{\milli\meter}$
+  \item 2. Platte: $s_2 = \SI{6.28}{\milli\meter}$
+\end{itemize}
+
+\subsection{Biometrische Untersuchung eines Augenmodells}
+
+Zuletzt werden die Biometrischen Abmessungen eines Augenmodells bestimmt. Dabei lässt
+sich das Auge in zwei Bereiche mit unterschiedlichen Schallgeschindigkeiten einteilen \cite{1}:
+
+\begin{itemize}
+  \item Linse: $c_L = \SI{2500}{\meter\per\second}$
+  \item Glaskörper: $c_{GK} = \SI{1410}{\meter\per\second}$
+\end{itemize}
+
+Nun wird wieder mit dem Impuls-Echo-Verfahren die Laufzeit bestimmt.
+
+\begin{itemize}
+  \item Linse: $\Delta t_L = \SI{15.5}{\micro\second}$
+  \item Glaskörper: $\Delta t_{GK} = \SI{56.6}{\micro\second}$
+\end{itemize}
+
+Mit der Gleichung \ref{eq:6} können nun die Abmessungen bestimmt werden:
+
+\begin{itemize}
+  \item Linse: $s_L = \SI{19.58}{\milli\meter}$
+  \item Glaskörper: $s_{GK} = \SI{39.90}{\milli\meter}$
+\end{itemize}
