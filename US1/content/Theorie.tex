@@ -4,55 +4,51 @@ in ihren Anwedungsbereichen kennengelernt werden.
 \section{Theorie}
 Als Ultraschall bezeichnet man den Frequenzbereich von 20 kHz bis ca. 1 GHz.
 Zum Vergleich hören Menschen ein Frequenzbereich von 16 Hz bis ca. 20 kHz.
-Um die longitudinale elektromagnetische Welle, in seinen Anwedungen wie in der Werkstoffprüfung
+Um diese longitudinalen Wellen, in seinen Anwedungen, wie in der Werkstoffprüfung
 und in der Medizin, beschreiben zu können wird diese Formel
-\begin{equation}
+\begin{equation*}
   p(x,t)= p_0 + v_0 Z cos(\omega t - k x)
-  \label{eq:1}
-\end{equation}
-angewendet.
-Dabei ist $Z = c* \rho$ die akustische Impedanz. $\rho$ ist die Dichte des durchstrahlten Materials.
-Da Ultraschall aufgrund von Druckschankungen sich fortbewegt, ist sie von Druck- bzw. Dichteänderung materialabhängig.
-Die Schallgeschwindigkeit in einer Flüssigkeit ist von ihrer Kompressibilität $\kappa$ und deren Dichte $\rho$
+\end{equation*}
+verwendet.
+Dabei ist $Z = c* \rho$ die akustische Impedanz und $\rho$ ist die Dichte des durchstrahlten Materials.
+Da Ultraschall sich aufgrund von Druckschankungen fortbewegt, ist ihre Geschwindigkeit materialabhängig.
+Die Schallgeschwindigkeit in einer Flüssigkeit ist von ihrer Kompressibilität $\kappa$ und der Dichte $\rho$
 abhängig.
-\begin{equation}
+\begin{equation*}
   c_{\text{flüssig}} = \sqrt{\frac{1}{\kappa \cdot \rho}}
-  \label{eq:2}
-\end{equation}
-Bei Schallausbreitung in Festkörpern sind Transversalwellen möglich, da sie Richtungsabhängig sind.
+\end{equation*}
+Bei Schallausbreitung in Festkörpern sind auch Transversalwellen möglich, da sie Richtungsabhängig sind.
 Hierbei ist die Kompressibilität $\kappa$ antiproprtional zum Elastizitätsmodul $E$ des Festkörpers.
-\begin{equation}
+\begin{equation*}
   c_{\text{fest}} = \sqrt{\frac{E}{\rho}}
-  \label{eq:3}
-\end{equation}
-Die Energie durch die Absorption nimmt exponetiell ab.
+\end{equation*}
+Die Intensität einer Schallwelle nimmt exponentiell ab.
 \begin{equation}
   I(x) =I_0 \cdot e^{-\alpha x}
   \label{eq:4}
 \end{equation}
-$\alpha$ beschreibt den Absorptionskoeffizient der Schallamplitude.
-Da Luft ein sehr hohe Absorptionskoeffizient hat wird in der Medizin ein Kontaktmittel
+Dabei  ist$\alpha$ der Absorptionskoeffizient der Schallamplitude.
+Da Luft ein sehr hohen Absorptionskoeffizient hat wird in der Medizin ein Kontaktmittel
 zwischen Sonde und dem untersuchendem Material verwendet.
 Wie bei elektromagnetische Wellen haben sie die Eigenschaft zu reflektieren.
 Dabei setzt sich der Reflexionskoeffizient R, das Verhältnis von reflektierten zu einfallender Schallintensität zusammen.
-\begin{equation}
-  R = (\frac{Z_1 - Z_2} {Z_1 + Z_2})^2
-  \label{eq:5}
-\end{equation}
+\begin{equation*}
+  R = \left(\frac{Z_1 - Z_2} {Z_1 + Z_2}\right)^2
+\end{equation*}
 Der Anteil der transmittierten Wellen lässt sich aus $T=1-R$ berechnen.
 Um Ultraschallwellen zu erzeugen nutzt man den piezo-elektrischen Effekt aus.
 Dabei werden die piezoelektrische Kristall in ein elektrisches Wechselfeld gebracht.
-Durch die Richtung des elektrischen Feldes werden die polaren Achsen des Kristalls in Schwingung angeregt und
+Durch die Richtung des elektrischen Feldes werden die polaren Achsen des Kristalls zu Schwingung angeregt und
 senden dabei Ultraschallwellen aus.
 In der Medizin werden zwei Messmethoden angewendet.
 Zum einen das Durchschallungs-Verfahren. Wie der Name schon sagt werden die Probestücke durchschallt. Dabei sendet
 der Sender ein kurzeitigen Schallimpuls aus und am andere Ende wird dies durch ein Empfänger aufgefangen.
 Bei einer Fehlstelle wird die Intensität abgeschwächte am Empfänger gemessen.
 Die andere Messmethode ist das Impuls-Echo-Verfahren. Dabei ist der Sender gleichzeitig der Empfänger. Bei bekannter Schallgeschwindigkeit
-bewegt sie sich mit dem Weg-Geschwindigkeits-Gesetzt
+lässt sich die zurückgelegte Strecke des Ultraschalls mit folgender Formel bestimmen:
 \begin{equation}
-  s=\frac{1}{2} c t
+  s=\frac{1}{2} c t.
   \label{eq:6}
 \end{equation}
-fort. Bei einer Fehlstelle wird der reflektierte Schall eher am Empfänger angekommen.
+Bei einer Fehlstelle wird der reflektierte Schall eher am Empfänger angekommen.
 Die Laufzeitdiagramme können in einen A- oder B-Scan dargestellt werden.
