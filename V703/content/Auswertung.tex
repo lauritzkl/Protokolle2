@@ -1,7 +1,7 @@
 \section{Auswertung}
 \subsection{Zählrohr-Charakteristik}
-In der Tabelle (\ref{tab:1}) sind die folgenden Messdaten aufgelistet und in
-der Abbilung (\ref{abb:6}) graphisch dargestellt.
+In der Tabelle \ref{tab:1} sind die folgenden Messdaten aufgelistet und in
+der Abbilung \ref{abb:6} graphisch dargestellt.
 \begin{table}[H]
   \centering
   \caption{Messaufnahme zur Bestimmung des Plateaus.}
@@ -11,7 +11,7 @@ der Abbilung (\ref{abb:6}) graphisch dargestellt.
     $U \, /\, V$ & $N$ & $U \, /\, V$ & $N$ & $U \, /\, V$ & $N$ & $U \, /\, V$ &$N$ \\
     \midrule
 \cellcolor{red}300 & \cellcolor{red}0 &410 & 13155 &530& 13336 &640& 13563\\
-    310 & 12111 &420 & 13885 &540& 13225 &650& 13917\\
+    310 & 12111 &420 & 13085 &540& 13225 &650& 13917\\
     320 & 12575 &430 & 12954 &550& 13318 &660& 13709\\
     330 & 12674 &450 & 13184 &560& 13376 &670& 13721\\
     340 & 12504 &460 & 13193 &570& 13200 &680& 13918\\
@@ -24,6 +24,13 @@ der Abbilung (\ref{abb:6}) graphisch dargestellt.
     \bottomrule
   \end{tabular}
 \end{table}
+
+Da es sich hier um Zählraten handelt ergibt sich der Fehler der Messwerte zu:
+
+\begin{equation*}
+  \Delta N = \sqrt{N}.
+\end{equation*}
+
 \begin{figure}[H]
   \centering
   \includegraphics{plot1.pdf}
@@ -31,7 +38,7 @@ der Abbilung (\ref{abb:6}) graphisch dargestellt.
   \label{abb:6}
 \end{figure}
 Es ist zu beachten, dass der erste Messwert (rötlich hinterlegt) nicht in der Auswertung berücksichtig wird,
-da er physikalisch nicht sinnvoll ist.
+da er nicht im Auslösebereich des Geiger-Müller-Zählrohrs liegt.
 Das Plateau beginnt bei $\SI{400}{\volt}$ und endet bei $\SI{550}{\volt}$.
 Für diesen Kurvenabschnitt wird eine lineare Auschgleichsrechnung mit Python 3.6 durchgeführt.
 Somit ergibt sich für die Parameter der Geraden:
@@ -47,12 +54,17 @@ Anschließend wird die Plateau-Steigerung in $\%$ pro $100 \, V$ mit
   s = \frac{f(500)}{f(400)} \cdot 100 - 100 \%
 \end{equation*}
 
-bestimmt.
+bestimmt. Dabei ist
+
+\begin{equation*}
+  f(U) = m \cdot U + b.
+\end{equation*}
+
 Die Steigerung beträgt $s = \num{1.2(4)} \%$.
 
 \subsection{Totzeit des Zählrohrs}
 Wie in der Durchführung angesprochen wurde, wird zunächst die Totzeit $T_\text{tot}$ sowie die Erhohlungszeit $T_\text{re}$ von dem Oszilloskop
-abgelesen. In der Tabelle (\ref{tab:2}) sind die Messwerte dargestellt und anschließend wird der Mittelwert sowie die Standardabweichung
+abgelesen. In der Tabelle \ref{tab:2} sind die Messwerte dargestellt und anschließend wird der Mittelwert sowie die Standardabweichung
 bestimmt.
 \begin{table}[H]
   \centering
@@ -60,14 +72,15 @@ bestimmt.
   \label{tab:2}
   \begin{tabular}{c c c}
     \toprule
-    $U \, /\, V$ & $T_\text{tot} / s$ & $T_\text{re} / s$\\
-    400 & 0.18 & 0.42\\
-    500 & 0.2 & 0.7\\
-    600 & 0.22 & 0.88\\
+    $U \, /\, V$ & $T_\text{tot} / ms$ & $T_\text{re} / ms$\\
+    \midrule
+    400 & 0,18 & 0,42\\
+    500 & 0,20 & 0,70\\
+    600 & 0,22 & 0,88\\
     \bottomrule
   \end{tabular}
 \end{table}
-Für den Mittelwert sowie die Standardabweichung werden die Formeln (\ref{fel:3}) und (\ref{fel:4})
+Für den Mittelwert sowie die Standardabweichung werden die Formeln \ref{fel:3} und \ref{fel:4}
 
 \begin{equation}
     \bar{x} = \frac{1}{N} \sum_{i=1}^{N} x_i
@@ -83,39 +96,63 @@ verwendet. Es folgt für die beiden Zeiten folgende Werte:
 
 \begin{itemize}
   \item $T_\text{tot} = \SI{0.20(1)}{\milli\second}$
-  \item $T_\text{re} = \SI{0.67(19)}{\milli\second}$
+  \item $T_\text{re} = \SI{0.67(13)}{\milli\second}$
 \end{itemize}
 
 Nun wird die Totzeit mithilfe der Zwei-Quellen-Methode bestimmt.
 Die Messaufnahmen für die beiden Präperate ergeben sich bei einer Spannung von $U = 520 \, V$:
 
 \begin{itemize}
-  \item $N_1 = 13100$
-  \item $N_2 = 1393$
-  \item $N_{1+2} = 14668$
+  \item $N_1 = \SI{13100}{\per\minute}$
+  \item $N_2 = \SI{1393}{\per\minute}$
+  \item $N_{1+2} = \SI{14668}{\per\minute}$
 \end{itemize}
 
-Zur Berechnung der Totzeit wird die Formel (\ref{eq:2}) verwendet.
-Da der Messwert $N_{1+2}$ größer ist als $N_1 + N_2$ bei dieser Formel eine
-negative Totzeit herauskommen. Deshalb erigbt sich eine negative Totzeit, was
+Zur Berechnung der Totzeit wird die Formel \ref{eq:2} verwendet.
+Da der Messwert $N_{1+2}$ größer ist als $N_1 + N_2$ ist bei dieser Formel eine
+negative Totzeit herauskommen. Deshalb ergibt sich eine negative Totzeit, was
 physikalisch nicht sinnvoll ist.
+Der Fehler der Totzeit wird der folgenden Formel bestimmt:
+
+\begin{equation*}
+  \Delta T_\text{Totzeit} = \sqrt{\left( A \right)^2 \cdot \Delta N_1^2 +
+  \left( B \right)^2 \cdot \Delta N_2^2 +
+  \left( C \right)^2 \cdot \Delta N_{1+2}^2}
+\end{equation*}
+
+Dabei sind die Variablen:
+
+\begin{equation*}
+  A = \frac{2N_1N_2 - (N_1+N_2-N_{1+2})2N_2}{(2N_1N_2)^2}
+\end{equation*}
+\begin{equation*}
+  B = \frac{2N_1N_2 - (N_1+N_2-N_{1+2})2N_1}{(2N_1N_2)^2}
+\end{equation*}
+\begin{equation*}
+  C = \frac{-1}{2N_1N_2}
+\end{equation*}
+
 Das Ergebnis  für die Totzeit lautet somit:
 
 \begin{equation*}
-  T_{\text{Totzeit}} = (-5 \pm 5) \cdot 10^{-6} \, s
+  T_{\text{Totzeit}} = \SI{-0.27(28)}{\milli\second}
 \end{equation*}
 
 
-\subsection{Messung der freigesetzen Ladungsmengen}
+\subsection{Messung der freigesetzten Ladungsmengen}
 
-Für die Berechnung der Ladungsmenge wird die Formel (\ref{eq:1}) umgestellt
+Für die Berechnung der Ladungsmenge wird die Formel \ref{eq:1} umgestellt
 
 \begin{equation*}
   \Delta Q =\overbrace{n}^{\mathclap{\text{Anzahl}}} \, \cdot \, \underbrace{e}_{\mathclap{\text{Elementarladung}}}  =  \frac{I \cdot \Delta t}{Z}
 \end{equation*}
 
-Da nur die Anzahl der Teilchen gesucht wird, wird die vorherige Gleichung noch durch die Elementarladung geteilt und in der Tabelle (\ref{tab:3})
-dargestellt. Dabei ist Z fehlerbehaftet.
+Da nur die Anzahl der Teilchen gesucht wird, wird die vorherige Gleichung noch durch die Elementarladung geteilt und in der Tabelle \ref{tab:3}
+dargestellt. Dabei ist Z fehlerbehaftet und damit n auch. Der Fehler von n wird mit folgender Formel bestimmt:
+
+\begin{equation*}
+  \Delta n = \sqrt{\left( \frac{-I \Delta t}{e Z^2} \right)^2 \cdot \Delta Z^2}
+\end{equation*}
 
 \begin{table}[H]
   \centering
@@ -126,26 +163,26 @@ dargestellt. Dabei ist Z fehlerbehaftet.
         $U \, /\, V$ & $I \,/\, \mu A $ & $n \,/\, 10^{10}\, \text{Teilchen}$ &
         $U \, /\, V$ & $I \,/\, \mu A $ & $n \,/\, 10^{10}\, \text{Teilchen}$ \\
         \midrule
-        310 & 0.1 & 0.309 \pm 0.002 & 510 & 0.6 & 1.721 \pm 0.015\\
-        320 & 0.2 & 0.596 \pm 0.005 & 520 & 0.6 & 1.684 \pm 0.015\\
-        330 & 0.2 & 0.591 \pm 0.005 & 530 & 0.7 & 1.968 \pm 0.017\\
-        340 & 0.2 & 0.599 \pm 0.005 & 540 & 0.7 & 1.985 \pm 0.017\\
-        350 & 0.2 & 0.588 \pm 0.005 & 550 & 0.8 & 2.253 \pm 0.020\\
-        360 & 0.2 & 0.584 \pm 0.005 & 560 & 0.8 & 2.243 \pm 0.019\\
-        370 & 0.2 & 0.579 \pm 0.005 & 570 & 0.8 & 2.273 \pm 0.020\\
-        380 & 0.3 & 0.869 \pm 0.007 & 580 & 0.8 & 2.219 \pm 0.019\\
-        390 & 0.3 & 0.879 \pm 0.008 & 590 & 0.8 & 2.232 \pm 0.019\\
-        400 & 0.3 & 0.860 \pm 0.008 & 600 & 0.9 & 2.526 \pm 0.022\\
-        410 & 0.3 & 0.855 \pm 0.007 & 610 & 0.9 & 2.539 \pm 0.022\\
-        420 & 0.4 & 1.146 \pm 0.010 & 620 & 1.0 & 2.789 \pm 0.023\\
-        430 & 0.4 & 1.158 \pm 0.010 & 630 & 1.0 & 2.779 \pm 0.024\\
-        440 & 0.4 & 1.138 \pm 0.009 & 640 & 1.0 & 2.765 \pm 0.024\\
-        450 & 0.5 & 1.421 \pm 0.012 & 650 & 1.0 & 2.695 \pm 0.023\\
-        460 & 0.5 & 1.424 \pm 0.012 & 660 & 1.0 & 2.735 \pm 0.023\\
-        470 & 0.5 & 1.441 \pm 0.013 & 670 & 1.1 & 3.006 \pm 0.026\\
-        480 & 0.6 & 1.704 \pm 0.015 & 680 & 1.1 & 2.964 \pm 0.025\\
-        490 & 0.6 & 1.728 \pm 0.015 & 690 & 1.2 & 3.294 \pm 0.028\\
-        500 & 0.6 & 1.691 \pm 0.014 & 700 & 1.3 & 3.409 \pm 0.029\\
+        310 & 0,1 & 0,309 \pm 0,002 & 510 & 0,6 & 1,721 \pm 0,015\\
+        320 & 0,2 & 0,596 \pm 0,005 & 520 & 0,6 & 1,684 \pm 0,015\\
+        330 & 0,2 & 0,591 \pm 0,005 & 530 & 0,7 & 1,968 \pm 0,017\\
+        340 & 0,2 & 0,599 \pm 0,005 & 540 & 0,7 & 1,985 \pm 0,017\\
+        350 & 0,2 & 0,588 \pm 0,005 & 550 & 0,8 & 2,253 \pm 0,020\\
+        360 & 0,2 & 0,584 \pm 0,005 & 560 & 0,8 & 2,243 \pm 0,019\\
+        370 & 0,2 & 0,579 \pm 0,005 & 570 & 0,8 & 2,273 \pm 0,020\\
+        380 & 0,3 & 0,869 \pm 0,007 & 580 & 0,8 & 2,219 \pm 0,019\\
+        390 & 0,3 & 0,879 \pm 0,008 & 590 & 0,8 & 2,232 \pm 0,019\\
+        400 & 0,3 & 0,860 \pm 0,008 & 600 & 0,9 & 2,526 \pm 0,022\\
+        410 & 0,3 & 0,855 \pm 0,007 & 610 & 0,9 & 2,539 \pm 0,022\\
+        420 & 0,4 & 1,146 \pm 0,010 & 620 & 1,0 & 2,789 \pm 0,023\\
+        430 & 0,4 & 1,158 \pm 0,010 & 630 & 1,0 & 2,779 \pm 0,024\\
+        440 & 0,4 & 1,138 \pm 0,009 & 640 & 1,0 & 2,765 \pm 0,024\\
+        450 & 0,5 & 1,421 \pm 0,012 & 650 & 1,0 & 2,695 \pm 0,023\\
+        460 & 0,5 & 1,424 \pm 0,012 & 660 & 1,0 & 2,735 \pm 0,023\\
+        470 & 0,5 & 1,441 \pm 0,013 & 670 & 1,1 & 3,006 \pm 0,026\\
+        480 & 0,6 & 1,704 \pm 0,015 & 680 & 1,1 & 2,964 \pm 0,025\\
+        490 & 0,6 & 1,728 \pm 0,015 & 690 & 1,2 & 3,294 \pm 0,028\\
+        500 & 0,6 & 1,691 \pm 0,014 & 700 & 1,3 & 3,409 \pm 0,029\\
         \bottomrule
       \end{tabular}
 \end{table}

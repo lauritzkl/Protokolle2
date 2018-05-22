@@ -53,7 +53,7 @@ dN1= ufloat(13100, np.sqrt(13100))
 dN2= ufloat(1393, np.sqrt(1393))
 dN12=ufloat(14658, np.sqrt(14658))
 
-print('T=', (dN1 + dN2 - dN12)/(2*dN1*dN2))
+print('T=', (dN1 + dN2 - dN12)/(2*dN1*dN2)*60)
 
 dy = np.sqrt(y)
 
