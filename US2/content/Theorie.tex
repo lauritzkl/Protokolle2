@@ -15,10 +15,9 @@ sich die Schallwelle bewegt. Für die Bestimmung der Schallgeschwindigkeit kommt
 dadrauf an, ob es sich um ein Gas/ eine Flüssigkeit oder um einen Festkörper handelt.
 Die Schallgeschwindigkeit in einer Flüssigkeit lässt sich mit folgender Formel bestimmen:
 
-\begin{equation}
+\begin{equation*}
   c_{Fl} = \sqrt{\frac{1}{\kappa \cdot \rho}}
-  \label{eq:1}
-\end{equation}
+\end{equation*}
 
 wobei $\kappa$ die Kompressibilität der Flüssigkeit ist. Die Formel für einen Festkörper
 unterscheidet sich von der für Flüssigkeiten aufgrund der Schubspannung. Außerdem kommt es
@@ -26,10 +25,9 @@ auch zu Transversalwellen in Festkörpern, die eine andere Schallgeschwindigkeit
 Es ergibt sich für die Berechnung der Schallgeschwindigkeit in einem Festkörper die
 Gleichung:
 
-\begin{equation}
+\begin{equation*}
   c_{Fe} = \sqrt{\frac{E}{\rho}}.
-  \label{eq:2}
-\end{equation}
+\end{equation*}
 
 Dabei ist E das Elastizitätsmodul.
 
@@ -37,17 +35,16 @@ Die Intensität einer Schallwelle nimmt exponentiell ab, dabei kommt es auf den
 Absorptionskoeffizienten $\alpha$ der Schallamplitude von dem vorliegenden Material an.
 
 \begin{equation*}
-  I (x) = I_0 \cdot \exp(\alpha x)
+  I (x) = I_0 \cdot \exp(-\alpha x)
 \end{equation*}
 
 Außerdem wird ein Teil einer Schallwelle bei einer Grenzfläche von zwei Materialien
 reflektiert und ein Teil transmittiert. Für die Berechnung des Reflexionskoeffizienten
 werden die akustischen Impedanzen Z der Materialien benötigt.
 
-\begin{equation}
+\begin{equation*}
   R = \left( \frac{Z_1 - Z_2}{Z_1 + Z_2} \right)^2
-  \label{eq:3}
-\end{equation}
+\end{equation*}
 
 Für die Erzeugung von Ultraschallwellen wird meistens der \enquote{piezo-elektrische Effekt}
 benutzt. Dieser Effekt besagt, dass ein Piezokristall, zum Beispiel Quarze, in einem
@@ -60,7 +57,7 @@ werden, da er auch durch diese Wellen zum schwingen angeregt wird.
 Bei der Ultraschalltechnik werden zwei Verfahren angewendet.
 
 \begin{enumerate}
-  \item \underline{Durchschallungs-Verfahren:} Hierbei wird auf einer Seite des Probenstücks
+  \item \underline{Durchschallungs-Verfahren:} Hierbei wird auf einer Seite des Probestücks
   ein Schallimpuls ausgesendet und auf der anderen Seite mit einem Empfänger aufgefangen.
   Falls sich in der Probe andere Materialien befinden, wird das durch eine abgeschwächte
   Intensität gemessen. Es kann allerdings nicht festgestellt werden wo sich die anderen
@@ -74,7 +71,7 @@ Bei der Ultraschalltechnik werden zwei Verfahren angewendet.
 
 \begin{equation}
   s = \frac{1}{2} c t
-  \label{eq:4}
+  \label{eq:1}
 \end{equation}
 
 In der Medizin wird überwiegend das Impuls-Echo-Verfahren verwendet. Dabei können die
@@ -84,7 +81,7 @@ Laufzeitmessungen auf verschiedene Arten ausgewertet werden.
   \item Amplituden-Scan: Die Echoamplituden werden als Funktion der Laufzeit dargestellt.
   Dieser Scan ist ein eindimensionales Verfahren.
   \item Brightness-Scan: Dabei wird die Sonde bewegt und die Echoamplituden werden in
-  Helligkeitsabstufungen dargestellt. Es ergibt sich ein zweidimensionales Bild
+  Helligkeitsabstufungen dargestellt. Es ergibt sich ein zweidimensionales Bild.
   \item Time-Motion-Scan: Dabei wird eine zeitliche Bildfolge dargestellt, welche
   durch schnelle Abtastung entsteht.
 \end{itemize}
