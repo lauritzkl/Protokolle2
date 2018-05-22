@@ -1,1 +1,104 @@
 \section{Auswertung}
+\subsection{Vorbereitung}
+Als Vorbereitung wird zunächst die Schallgeschwindigkeiten von einigen Materialien bestimmt. Sie sind in
+der Tabelle (\ref{tab:1}) dargestellt.
+\begin{table}[H]
+  \centering
+  \caption{Literaturwerte für Schallgeschwindigkeiten \cite{2} \cite{3}.}
+  \label{tab:1}
+  \begin{tabular}{c c}
+    \toprule
+     & $c \, / \, \si[per-mode=fraction]{\meter\per\second}$\\
+     \midrule
+     Luft \SI{0}{\celsius}          & 331  \\
+     dest. Wasser \SI{20}{\celsius} & 1485 \\
+     Acryl                          & 2730 \\
+     \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{Untersuchung eines Acrylblocks mit dem A-Scan}
+Zunächst werden die Abmessungen vom Acrylblocks mithilfe einer Schieblehre gemessen und in
+der Tabelle (\ref{tab:2}) dargestellt.
+
+\begin{table}[H]
+  \centering
+  \caption{Abmessung des Acrylblocks.}
+  \label{tab:2}
+  \begin{tabular}{c c c}
+    \toprule
+     $\text{Länge} \,/\, \si[per-mode=fraction]{\milli\meter}$ &$\text{Höhe} \, /\, \si[per-mode=fraction]{\milli\meter}$ &$\text{Breite} \, /\, \si[per-mode=fraction]{\milli\meter}$\\
+     \midrule
+     150 & 80.01 & 60 \\
+     \bottomrule
+  \end{tabular}
+\end{table}
+
+Anschließend werden die Tiefen der Fehlstellen mit dem A-Scan bestimmt. Die dazugehörige Schallgeschwindigkeit
+von Acryl wird von der Tablle{\ref{tab:1}} entnommen und mit der Formel (\ref{eq:1}) nach der Strecke umgeformt.
+Um eine genau Lokalisation der Fehlstelle zu bekommen wird der Block zusätzlich von der andere Seite durchschallt.
+Die Messaufnahmen sind in der Tabelle (\ref{tab:3}) dargestellt.
+
+\begin{table}[H]
+  \centering
+  \caption{Messergebnisse vom A-Scan.}
+  \label{tab:3}
+  \begin{tabular}{c c c c}
+    \toprule
+    \multicolumn{2}{c}{Oben} & \multicolumn{2}{c}{Unten} \\
+    \cmidrule(lr){1-2}\cmidrule(lr){3-4}
+    $\text{Lochnummer}$ & $\text{Tiefe} \,/\, \si[per-mode=fraction]{\milli\meter}$ & $\text{Lochnummer}$ & $\text{Tiefe} \,/\, \si[per-mode=fraction]{\milli\meter}$\\
+    \midrule
+    11  & 56 & 11 & 15
+    10  & 7  & 10 & 71
+    9   & 16 & 9 & 63
+    8   & 23 & 8 & 55
+    7   & 31 & 7 & 47
+    6   & 39 & 6 & 39
+    5   & 47 & 5 & 30
+    4   & 54 & 4 & 22
+    3   & 62 & 3 & 13
+    2   & 18 & 2 & 64
+    1   & 22 & 1 & 60
+  \bottomrule
+  \end{tabular}
+\end{table}
+
+Der Durchmesser der jeweiligen Fehlstellen wird mit
+\begin{itemize}
+  \item $\text{Durchmesser} = |\text{Höhe} - (Messwert_{Oben} + Messwert_{Unten})|$
+\end{itemize}
+berechnet und in der Tabelle (\ref{tab:4}) mit den tatsächlichen Abmessungen gegenübergestellt.
+Für die Fehlerabweichung wird diese Formel verwendet.
+\begin{itemize}
+  \item $\text{Fehlerabweichung} = |\frac{\varnothing_{Theo} \cdot \varnothing_{Mess}}{\varnothing_{Theo}}| \cdot 100 \, \%$
+\end{itemize}
+
+%\begin{table}[H]
+%  \centering
+%  \caption{Durchmesser der jeweiligen Fehlstellen.}
+%  \label{tab:4}
+%  \begin{tabular}{c c c c c}
+%    \toprule
+%    & & & & \multicolumn{2}{c}{Genau Lokalisation von Oben} \\
+%    \cmidrule(lr){5}
+%     $\text{Lochnummer}$ &
+%     $\varnothing_{\text{Theorie}}} \,/\, \si[per-mode=fraction]{\milli\meter}$ &
+%     $\varnothing_{\text{Messung}}} \,/\, \si[per-mode=fraction]{\milli\meter}$ &
+%     $\text{Fehlerabweichung} \,/\, \%$ &
+%     $\si[per-mode=fraction]{\milli\meter}$ \\
+%     \midrule
+%     1 & 1,25 & 2 &
+%     2 &
+%     3 &
+%     4 &
+%     5 &
+%     6 &
+%     7 &
+%     8 &
+%     9 &
+%     10 &
+%     11 &
+%     \bottomrule
+%  \end{tabular}
+%\end{table}
