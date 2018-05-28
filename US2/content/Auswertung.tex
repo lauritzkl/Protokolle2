@@ -71,7 +71,7 @@ Der Durchmesser der jeweiligen Fehlstellen wird mit
 berechnet und in der Tabelle (\ref{tab:4}) mit den tatsächlichen Abmessungen gegenübergestellt.
 Für die Abweichung wird die folgende Formel verwendet.
 \begin{itemize}
-  \item $\text{Abweichung} = |\frac{\diameter_{Schieb} - \diameter_{Mess}}{\diameter_{Theo}}| \cdot 100 \, \%$
+  \item $\text{Abweichung} = |\frac{\diameter_{Schieb} - \diameter_{Mess}}{\diameter_{Schieb}}| \cdot 100 \, \%$
 \end{itemize}
 
 \begin{table}[H]
@@ -260,6 +260,16 @@ ausgewertet. Dabei ist die Nulllinie die Laufzeit $\Delta t = 54,1 \, \mu s$ vom
   \end{tabular}
 \end{table}
 Diese Werte werden nun gemittelt.
+Für den Mittelwert sowie die Standardabweichung werden die Formeln \ref{fel:1} und \ref{fel:2}
+\begin{equation}
+    \bar{x} = \frac{1}{N} \sum_{i=1}^{N} x_i
+    \label{fel:1}
+\end{equation}
+\begin{equation}
+  \Delta \bar{x} = \frac{1}{\sqrt{N}\sqrt{N-1}} \sqrt{\sum_{i}(x_i-\bar{x})^2}
+  \label{fel:2}
+\end{equation}
+
 \begin{itemize}
   \item $\text{EDV} = 15,17 \pm 0,42\, \si{\milli\litre}$
   \item $\text{HZV} = 10,32 \pm 0,29\, \si{\milli\litre\per\second}$
