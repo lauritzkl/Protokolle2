@@ -8,7 +8,7 @@ gezeigt.
 
 \begin{table}[H]
   \centering
-  \caption{Literaturwerte für Schallgeschwindigkeiten und akustischen Impedanzen \cite{2} \cite{3}.}
+  \caption{Literaturwerte für Schallgeschwindigkeiten und akustische Impedanzen \cite{2} \cite{3}.}
   \label{tab:1}
   \begin{tabular}{c c c}
     \toprule
@@ -51,19 +51,19 @@ Tabelle \ref{tab:2} abgebildet. Für die Schallgeschwindigkeit wird die Formel \
 \end{figure}
 
 In der Abbildung \ref{abb:1} ist das Messprogramm dargestellt. Zur Bestimmung der
-Schallgeschwindigkeit in dem Acrylzylinder werden die Pulse verwendet, die durch
-den roten und blauen Cursor markiert sind. Die Amplituden werden auch an diesen Stellen
+Schallgeschwindigkeit in dem Acrylzylinder werden die Peaks verwendet, die durch
+den roten und grünen Cursor markiert sind. Die Amplituden werden auch an diesen Stellen
 bestimmt.
 
 Nun wird die bestimmte Schallgeschindigkeit von $c = \SI{2723.18}{\meter\per\second}$
 in das Messprogramm eingetragen und es wird eine Tiefenmessung durchgeführt.
-Diese ergibt:
+Diese ergibt
 
 \begin{equation*}
   L = \SI{3.92}{\centi\meter}.
 \end{equation*}
 
-Das ist eine Abweichung von $0,38 \%$.
+Das entspricht einer Abweichung von $0,38 \%$ im Vergleich zu dem mit der Schieblehre ermittelten Wert.
 
 \subsection{Bestimmung der Dämpfung}
 
@@ -87,7 +87,7 @@ Nun wird die Dämpfung bestimmt. Die Messwerte sind in Tabelle \ref{tab:3} darge
   \end{tabular}
 \end{table}
 
-Dazu wird die Gleichung \ref{eq:4} umgeformt zu:
+Dazu wird die Gleichung \ref{eq:4} umgeformt zu
 
 \begin{equation*}
  \ln \left(\frac{I(x)}{I_0}\right) = - \alpha x.
@@ -107,7 +107,7 @@ Die Ausgleichsrechnung wird mit Python 3.6 durchgeführt. Es ergibt sich für di
 der Geraden:
 
 \begin{itemize}
-  \item $\alpha = \SI{16.48(307)}{\per\meter}$
+  \item $\alpha = \SI[per-mode=fraction]{16.48(307)}{\per\meter}$
   \item $b = \num{0.57(24)}$
 \end{itemize}
 
@@ -115,7 +115,7 @@ Dabei ist b der Achsenabschnitt.
 
 \subsection{Schallgeschwindigkeit Impuls-Echo-Verfahren}
 
-In diesen Abschnitt wird die Schallgeschwindigkeit von verschiedenen Acrylzylindern
+In diesen Abschnitt wird die Schallgeschwindigkeit in verschiedenen Acrylzylindern
 bestimmt. Dabei werden zunächst die Zylinder vermessen und daraufhin wird die Laufzeit
 gemessen. Mit der Gleichung \ref{eq:6} kann aus den Werten die Schallgeschwindigkeit
 bestimmt werden. Die Messwerte sind in Tabelle \ref{tab:4} dargestellt.
@@ -192,13 +192,13 @@ Es wird wieder der Mittelwert und die Standartabweichung mit den Gleichungen \re
   \overline{c_d} = \SI{2676.82(1168)}{\meter\per\second}.
 \end{equation*}
 
-Damit ergibt sich eine Abweichung von $ 1.21 \% $ zu dem Impuls-Echo-Verfahren. Diese
+Damit ergibt sich eine Abweichung von $ 1,21 \% $ zu dem Impuls-Echo-Verfahren. Diese
 Abweichung liegt im Toleranzbereich.
 
 \subsection{Spektrale Analyse und Cepstrum}
 
 In diesem Teil wird ein Spektrum von Mehrfachreflexionen aufgenommen. Das aufgenommene
-Spektrum mir dem zugehörigen Cepstrum sind in Abbildung \ref{abb:3} dargestellt.
+Spektrum mir dem zugehörigen Cepstrum ist in Abbildung \ref{abb:3} dargestellt.
 
 \begin{figure}[H]
   \centering
