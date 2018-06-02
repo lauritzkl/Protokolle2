@@ -53,7 +53,7 @@ print('Zählrate bei 2,5cm:')
 print('m=', params[0], '+-', errors[0])
 print('b=', params[1], '+-', errors[1])
 print('R_m=', R_m)
-print('E_m=', (R_m/3.1)**(2/3))
+print('E_m=', ((R_m*0.1)/3.1)**(2/3))
 
 #Berechnung des Energieverlustes bei 2,5cm:
 
@@ -121,7 +121,7 @@ print('Zählrate bei 2cm:')
 print('m=', params[0], '+-', errors[0])
 print('b=', params[1], '+-', errors[1])
 print('R_m=', R_m)
-print('E_m=', (R_m/3.1)**(2/3))
+print('E_m=', (R_m/31)**(2/3))
 
 #Berechnung des Energieverlustes bei 2cm:
 
@@ -153,24 +153,32 @@ print('b_2=', params1[1], '+-', errors1[1])
 
 #Statistik des Radioaktiven Zerfalls:
 
-N = np.genfromtxt('content/data3.txt', unpack=True)
+N_1 = np.genfromtxt('content/data3.txt', unpack=True)
 
-N_1 = N/100
+N = N_1/100
 
 plt.figure(1)
-result = plt.hist(N_1, bins=100, label='Messwerte')
-plt.xlim((min(N_1), max(N_1)))
+n, bins_1, stuff = plt.hist(N, 50, normed=True, label='Messwerte')
+bins = bins_1[1:]
 
-mean = np.mean(N_1)
-variance = np.var(N_1)
+plt.xlim((min(N), max(N)))
+
+mean = np.mean(N)
+variance = np.var(N)
 sigma = np.sqrt(variance)
-x = np.linspace(min(N_1), max(N_1), 100)
-dx = result[1][1] - result[1][0]
-scale = len(N_1)*dx
-plt.plot(x, mlab.normpdf(x, mean, sigma)*scale)
+x = np.linspace(min(N), max(N), 100)
+plt.plot(x, mlab.normpdf(x, mean, sigma), label='Gauß-Fit')
+
+def poisson(bins, x0):
+    return 1/np.sqrt(np.abs(2*np.pi*x0))*np.exp(-(bins-x0)**2/(2*x0))
+
+params, covariance_matrix = curve_fit(poisson, bins, n, p0=[65])
+
+
+plt.plot(x, poisson(x, *params), 'k-', label='Poission-Fit')
 
 plt.legend()
-#plt.ylabel(r'$E \, / \, MeV$')
+plt.ylabel(r'Häufigkeit')
 plt.xlabel(r'$\Delta N$')
 plt.tight_layout()
 plt.savefig('plot5.pdf')
@@ -178,19 +186,3 @@ plt.close()
 
 print('N_m=', mean)
 print('N_v=', variance)
-
-n, bins, patches = plt.hist(N_1, bins=100)
-
-def poisson(k, v):
-    return (v**k/factorial(k)) * np.exp(-v)
-
-params, covariance_matrix = curve_fit(poisson, bins, n)
-
-x_1 = np.linspace(min(N_1), max(N_1), 1000)
-plt.plot(x_1, poisson(x_1, *params), 'r-')
-#plt.legend()
-#plt.ylabel(r'$E \, / \, MeV$')
-plt.xlabel(r'$\Delta N$')
-plt.tight_layout()
-plt.savefig('plot6.pdf')
-plt.close()
