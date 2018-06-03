@@ -170,7 +170,8 @@ x = np.linspace(min(N), max(N), 100)
 plt.plot(x, mlab.normpdf(x, mean, sigma), label='Gauß-Fit')
 
 def poisson(bins, x0):
-    return 1/np.sqrt(np.abs(2*np.pi*x0))*np.exp(-(bins-x0)**2/(2*x0))
+    return (x0**bins)/factorial(bins)*np.exp(-x0)
+#    return 1/np.sqrt(np.abs(2*np.pi*x0))*np.exp(-(bins-x0)**2/(2*x0))
 
 params, covariance_matrix = curve_fit(poisson, bins, n, p0=[65])
 
@@ -186,3 +187,4 @@ plt.close()
 
 print('N_m=', mean)
 print('N_v=', variance)
+print('x0=', params[0])

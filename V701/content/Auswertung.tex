@@ -281,20 +281,38 @@ Damit die Varianz nicht zu groß ist wird jeder Wert durch 100 geteilt.
   \label{abb:6}
 \end{figure}
 
-Außerdem lassen sich aus den Messwerten der Mittelwert und deren Varianz mit den
-folgenden Gleichungen bestimmen.
+Außerdem lassen sich aus den Messwerten der Mittelwert und deren Varianz von einer
+Gaußverteilung mit den folgenden Gleichungen bestimmen.
 
 \begin{equation*}
     \bar{x} = \frac{1}{N} \sum_{i=1}^{N} x_i
 \end{equation*}
 
 \begin{equation*}
-  V = \frac{1}{N(N-1)} \sum_{i}(x_i-\bar{x})^2??
+  V_g = \frac{1}{N(N-1)} \sum_{i}(x_i-\bar{x})^2
 \end{equation*}
 
-Damit ergibt sich für den Mittelwert und die Varianz:
+Damit ergibt sich für den Mittelwert und die Varianz für eine Gaußverteilung:
 
 \begin{itemize}
   \item $\bar{N} = \num{66.60}$
-  \item $V = \num{4.646}$
+  \item $V_p = \num{4.646}$
 \end{itemize}
+
+Von einer Poissonverteilung der Form
+
+\begin{equation*}
+  P(N, \lambda) = \frac{\lambda^N}{N!} \exp{(-\lambda)}
+\end{equation*}
+
+ist die Varianz
+
+\begin{equation*}
+  V_p = \lambda.
+\end{equation*}
+
+Damit ergibt sich die Varianz der Poissonverteilung zu
+
+\begin{equation*}
+  V_p = 66,87.
+\end{equation*}
