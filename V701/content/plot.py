@@ -164,7 +164,7 @@ bins = bins_1[1:]
 plt.xlim((min(N), max(N)))
 
 mean = np.mean(N)
-variance = np.var(N)
+variance = np.var(N, ddof=1)
 sigma = np.sqrt(variance)
 x = np.linspace(min(N), max(N), 100)
 plt.plot(x, mlab.normpdf(x, mean, sigma), label='Gauß-Fit')
