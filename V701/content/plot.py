@@ -54,6 +54,7 @@ print('m=', params[0], '+-', errors[0])
 print('b=', params[1], '+-', errors[1])
 print('R_m=', R_m)
 print('E_m=', ((R_m*0.1)/3.1)**(2/3))
+print('E=', E)
 
 #Berechnung des Energieverlustes bei 2,5cm:
 
@@ -67,7 +68,7 @@ errors1 = np.sqrt(np.diag(covariance_matrix1))
 
 
 plt.plot(x, E, r'rx', label='Messwerte')
-plt.plot(x, f(x, *params1), 'k-', label='Regression')
+#plt.plot(x, f(x, *params1), 'k-', label='Regression')
 
 plt.legend()
 plt.grid()
@@ -122,6 +123,7 @@ print('m=', params[0], '+-', errors[0])
 print('b=', params[1], '+-', errors[1])
 print('R_m=', R_m)
 print('E_m=', (R_m/31)**(2/3))
+print('E=', E)
 
 #Berechnung des Energieverlustes bei 2cm:
 
