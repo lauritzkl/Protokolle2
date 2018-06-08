@@ -35,7 +35,7 @@ x_plot = np.linspace(min(x), max(x), 1000)
 
 plt.plot(x, y, r'rx', label='Messwerte')
 plt.plot(x_plot, f(x_plot, *params), 'k-', label='Regression für $\lambda >>\lambda_1$')
-plt.plot(x_plot, g(x_plot, *params1), 'k-', label='Regression für $\lambda << \lambda_1$')
+plt.plot(x_plot, g(x_plot, *params1), 'b-', label='Regression für $\lambda << \lambda_1$')
 plt.legend()
 plt.grid()
 plt.ylabel(r'$n^2$')
@@ -50,6 +50,21 @@ print('d=', params1[1], '+-', errors1[1])
 
 #Berechnung der Abweichungsquadrate
 
-S1= (1/5)*np.sum((y**2-2.952+46604/x**2)**2)
-#S2= (1/5)*np.sum((y**2-))
-print(S1)
+S1= (1/5)*np.sum((y - 2.952 + 46604.063/x**2)**2)
+S2= (1/5)*np.sum((y - 3.322 + 6.771e-7 * x**2)**2)
+
+print('Berechnung der Abweichungsquadrate:')
+print('S_1=', S1)
+print('S_2=', S2)
+
+#Fehlerrechnung
+p, e = np.genfromtxt('content/data2.txt', unpack=True)
+
+phi=np.mean(p)
+eta=np.mean(e)
+dphi=np.std(p, ddof=1) / np.sqrt(len(p))
+deta=np.std(e, ddof=1) / np.sqrt(len(e))
+
+print('Winkelfehler')
+print('phi=', phi, 'dphi=', dphi)
+print('eta=', eta, 'deta=', deta)
