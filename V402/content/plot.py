@@ -47,15 +47,19 @@ print('b=', params[1], '+-', errors[1])
 print('c=', params1[0], '+-', errors1[0])
 print('d=', params1[1], '+-', errors1[1])
 
+a_1 = ufloat(params[0], errors[0])
+b_1 = ufloat(params[1], errors[1])
+c_1 = ufloat(params1[0], errors1[0])
+d_1 = ufloat(params1[1], errors1[1])
 
 #Berechnung der Abweichungsquadrate
 
-S1= (1/5)*np.sum((y - 2.952 + 46604.063/x**2)**2)
-S2= (1/5)*np.sum((y - 3.322 + 6.771e-7 * x**2)**2)
+S1= (y - a_1 - b_1/x**2)**2
+S2= (y - c_1 + d_1 * x**2)**2
 
 print('Berechnung der Abweichungsquadrate:')
-print('S_1=', S1)
-print('S_2=', S2)
+print('S_1=', 1/5 * sum(S1))
+print('S_2=', 1/5 * sum(S2))
 
 #Fehlerrechnung
 p, e = np.genfromtxt('content/data2.txt', unpack=True)
