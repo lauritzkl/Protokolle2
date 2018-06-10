@@ -32,7 +32,7 @@ Für den Mittelwert und die Standardabweichung werden die Formeln \ref{fel:1} un
 
 Daraus ergibt sich für
 \begin{equation*}
-  \varphi = (60,16\pm0,03)\textdegree
+  \varphi = (60,16\pm0,03)\textdegree.
 \end{equation*}
 
 Nun wird mithilfe der Gleichung \ref{eq:6} der Winkel $\eta$ bestimmt und anschließend werden
@@ -47,8 +47,8 @@ Die Messwerte sowie Brechungsindices sind in der Tabelle \ref{tab:2} dargestellt
     \toprule
     $\eta_l\,/\,[\textdegree]$ & $\eta_r\,/\,[\textdegree]$ & $\eta \,/\,[\textdegree]$ &$\lambda \,/\,\si{\nano\meter}$ & $n$\\
     \midrule
-    207 & 95 & 68 & 404,66 & 1,795\\
-    207,7 & 94,3 & 66,6 & 467,81 & 1,784\\
+    207 & 95 & 68 & 435,83 & 1,795\\
+    207,7 & 94,3 & 66,6 & 467,83 & 1,784\\
     208 & 94 & 66 & 479,99 & 1,779\\
     208,5 & 93,4 & 64,9 & 508,58 & 1,763\\
     209 & 93 & 64 & 546,07 & 1,770\\
@@ -69,12 +69,12 @@ Die beiden Parameter werden nun gegeneinander aufgetragen und in der Abbilung \r
 Die Regressionskurven sind jeweils mit der Gleichung \ref{eq:3} und \ref{eq:4} durchgeführt worden.
 Es ergeben sich für die Parameter folgende Werte:
 \begin{itemize}
-  \item $A_0 = \SI{2.952(17)}{\per\nano\meter}$
-  \item $A_2 = \SI{46604.06(409599)}{\per\nano\meter}$
-  \item $A'_0 = \SI{3.322(020)}{\per\nano\meter}$
-  \item $A'_2 = (6,771 \pm 0,703)10^{-7} \si{\per\nano\meter}$
+  \item $A_0 = \num{2.912(0072)}$
+  \item $A_2 = \SI{58467.62(182582)}{\nano\meter}^2$
+  \item $A'_0 = \num{3.334(027)}$
+  \item $A'_2 = (7,121 \pm 0,9563)10^{-7} \si[per-mode=fraction]{\per\nano\meter}$
 \end{itemize}
-Um nun bestimmen zu können, welche Annahme zur Dispersionskurve genommen werden soll, wird
+Um nun bestimmen zu können, welche Fall zur Dispersionskurve genommen werden soll, wird
 die Methode der kleinsten Quadrate zunächst bestimmt.
 \begin{equation*}
   s^2_n = \frac{1}{z-2} \sum_{i=1}^{z}(n^2(\lambda_i)-A_0-\frac{A_2}{\lambda^2_i})^2 \,\,\, \text{für} \, \lambda >> \lambda_1
@@ -84,15 +84,15 @@ die Methode der kleinsten Quadrate zunächst bestimmt.
   s^2_{n'} = \frac{1}{z-2} \sum_{i=1}^{z}(n^2(\lambda_i)-A'_0+A'_2 \cdot \lambda^2_i)^2 \,\,\, \text{für} \, \lambda << \lambda_1
   \label{eq:11}
 \end{equation*}
-Die eingesetzten Werte ergeben aufsummiert.
+Die eingesetzten Werte in Gleichung \ref{eq:10} und \ref{eq:11} ergeben aufsummiert.
 \begin{itemize}
-  \item $s^2_n = 0,2053$
-  \item $s^2_{n'} = 0,0002$
+  \item $s^2_n = (1,928 \pm 0)10^{-5}$
+  \item $s^2_{n'} = 0,0003 \pm 0$
 \end{itemize}
-Da $s^2$ möglichst klein sein soll, wird die Formel \ref{eq:4} für $\lambda << \lambda_1$ genutzt.
+Da $s^2$ möglichst klein sein soll, wird die Formel \ref{eq:3} für $\lambda >> \lambda_1$ genutzt.
 Es folgt für den Brechungsindex folgende Gleichung
 \begin{equation}
-  n(\lambda)= \sqrt{3,322 - 6,771\cdot 10^{-7} \cdot \lambda^2}.
+  n(\lambda)= \sqrt{2,912 + \frac{58468}{\lambda^2}}.
   \label{eq:12}
 \end{equation}
 
@@ -113,15 +113,15 @@ dargestellt. Für die Wellenlänge werden die Fraunhoferschen Linien verwendet.
     \toprule
     $\text{Linie}$ & $\text{Wellenlänge} \,/\,\si{\nano\meter}$ & $\text{Brechungsindex}$ &$n$\\
     \midrule
-    $\lambda_c$ & 656 & 1,741 & $n_c$\\
-    $\lambda_D$ & 589 & 1,757 & $n_D$\\
-    $\lambda_F$ & 486 & 1,778 & $n_F$\\
+    $\lambda_c$ & 656 & 1,746 & $n_c$\\
+    $\lambda_D$ & 589 & 1,755 & $n_D$\\
+    $\lambda_F$ & 486 & 1,778 & $n_f$\\
     \bottomrule
   \end{tabular}
 \end{table}
 Mit Gleichung \ref{eq:13} lautet die \textbf{Abbesche Zahl}
 \begin{equation*}
-  \nu = 20,56
+  \nu = 23,66
 \end{equation*}
 
 Für das Auflösungsvermögen werden zwei benachbarte Wellenlängen
@@ -137,11 +137,11 @@ Durch Näherungen von Winkelfunktionen kann das Auflösungsvermögen umgeschrieb
   \label{eq:14}
 \end{equation}
 Dabei ist $b$ die Basislänge vom Prisma und beträgt $\SI{3}{\centi\meter}$.
-Nun wird die Gleichung \ref{eq:4} nach $\lambda$ abgeleitet und in die Gleichung \ref{eq:14}
+Nun wird die Gleichung \ref{eq:3} nach $\lambda$ abgeleitet und in die Gleichung \ref{eq:14}
 eingesetzt.
-Es folgt für das Auflösungsvermögen:
+Es folgt für das Auflösungsvermögen in Betrag:
 \begin{equation}
-  A = b \cdot \frac{-6,771\cdot10^{-7} \lambda}{\sqrt{3,322 - 6,771\cdot10^{-7} \lambda^2}}
+  |A| = \frac{b\cdot58468}{\lambda^3 \sqrt{2,912 +\frac{58468}{\lambda^2}}}
 \end{equation}
 Die Ergebnisse werden in der Tabelle \ref{tab:4} dargestellt.
 \begin{table}[H]
@@ -152,17 +152,48 @@ Die Ergebnisse werden in der Tabelle \ref{tab:4} dargestellt.
     \toprule
     $\text{Linie}$ & $\text{Wellenlänge} \,/\,\si{\nano\meter}$ & $\text{Auflösungsvermögen}$\\
     \midrule
-    $\lambda_c$ & 656 & 7654,42 \\
-    $\lambda_D$ & 589 & 6809,48\\
-    $\lambda_F$ & 486 & 5551,68\\
+    $\lambda_c$ & 656 & 3559,02\\
+    $\lambda_D$ & 589 & 4890,81\\
+    $\lambda_F$ & 486 & 8596,44\\
     \bottomrule
   \end{tabular}
 \end{table}
 
 Um nun die nächste abgelegene Absorptionstelle $\lambda_1$ zu bestimmen wird
-mit der Lösung der Dispersionsgleichung ein Koeffizentenvergleich von $A'_0 \, ,\, A'_2$ gemacht.
-Der Vergleich wird mit der Gleichung \ref{eq:4} durchgeführt.
-Somit ergeben sich für 
+mit der Lösung der Dispersionsgleichung ein Koeffizentenvergleich von $A_0 \, ,\, A_2$ gemacht.
+Der Vergleich wird mit der Gleichung \ref{eq:3} durchgeführt.
+Somit ergeben sich für
 \begin{equation*}
-  A'_0 =
+  A_0 = 1 +\underbrace{\frac{N_h q_h^2}{4 \pi^2 c^2 \epsilon_0 m_h}}_\beta \lambda^2
+  \label{eq:15}
+\end{equation*}
+und
+\begin{equation*}
+  A_2 = \beta \cdot \lambda_1^4.
+  \label{eq:16}
+\end{equation*}
+Durch Auflösen von Gleichung \ref{eq:16} nach $\beta$ und Einsetzen in Gleichung \ref{eq:15} ergibt sich:
+\begin{equation*}
+  A_0 = 1+ \frac{A_2}{\lambda_1^2}
+\end{equation*}
+Durch Umformen nach der ersten Absorptionstelle $\lambda_1$ folgt:
+\begin{equation*}
+  \lambda_1 = \sqrt{\frac{A_2}{A_0-1}}
+\end{equation*}
+Die Werte eingesetzt ergibt sich zu:
+\begin{equation*}
+  \lambda_1 = \SI{174,9(27)}{\nano\meter}
+\end{equation*}
+Der Fehler wird mit der Gaußfehlerfortpflanzung berechnet.
+Die Formel dazu lautet:
+\begin{equation*}
+  \sigma_{\lambda_1} = \sqrt{(\frac{d\lambda_1}{dA_0} \cdot \sigma_{A_0})^2 + (\frac{d\lambda_1}{dA_2} \cdot \sigma_{A_2})^2}
+\end{equation*}
+Mit
+\begin{equation*}
+  \frac{d\lambda_1}{dA_0} = -\frac{1}{2} (\frac{A_2}{A_0 -1})^{-\frac{1}{2}} \cdot \frac{A_2}{(A_0 - 1)^2}
+\end{equation*}
+und
+\begin{equation*}
+  \frac{d\lambda_1}{dA_2} = \frac{1}{2} (\frac{A_2}{A_0 -1})^{-\frac{1}{2}} \cdot \frac{1}{A_0 - 1}
 \end{equation*}

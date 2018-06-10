@@ -57,9 +57,12 @@ d_1 = ufloat(params1[1], errors1[1])
 S1= (y - a_1 - b_1/x**2)**2
 S2= (y - c_1 + d_1 * x**2)**2
 
+L1 = unumpy.sqrt(b_1 / (a_1 - 1))
+
 print('Berechnung der Abweichungsquadrate:')
 print('S_1=', 1/5 * sum(S1))
 print('S_2=', 1/5 * sum(S2))
+print('Fehler der Absorptionstelle=', L1)
 
 #Fehlerrechnung
 p, e = np.genfromtxt('content/data2.txt', unpack=True)
@@ -68,6 +71,7 @@ phi=np.mean(p)
 eta=np.mean(e)
 dphi=np.std(p, ddof=1) / np.sqrt(len(p))
 deta=np.std(e, ddof=1) / np.sqrt(len(e))
+
 
 print('Winkelfehler')
 print('phi=', phi, 'dphi=', dphi)
