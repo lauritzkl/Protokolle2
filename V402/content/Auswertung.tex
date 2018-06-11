@@ -58,41 +58,42 @@ Die Messwerte sowie Brechungsindices sind in der Tabelle \ref{tab:2} dargestellt
   \end{tabular}
 \end{table}
 Das verwendete Prisma ist ein Schwerflint $\textbf{SF15}$. Zuerkennen ist, dass
-sich mit zunehmender Wellenlänge der Brechungsindex abnimmt.
+mit zunehmender Wellenlänge der Brechungsindex abnimmt.
 Die beiden Parameter werden nun gegeneinander aufgetragen und in der Abbilung \ref{abb:4} dargestellt.
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{plot1.pdf}
-  \caption{Darstellung der Dispersionskurve.}
+  \caption{Darstellung der Dispersionskurven.}
   \label{abb:4}
 \end{figure}
-Die Regressionskurven sind jeweils mit der Gleichung \ref{eq:3} und \ref{eq:4} durchgeführt worden.
+Die Ausgleichsrechnungen sind mit Python 3.6 durchgeführt worden. Dabei wurden
+die Gleichungen \ref{eq:3} und \ref{eq:4} für die Regression verwendet.
 Es ergeben sich für die Parameter folgende Werte:
 \begin{itemize}
   \item $A_0 = \num{2.912(0072)}$
   \item $A_2 = \SI{58467.62(182582)}{\nano\meter}^2$
   \item $A'_0 = \num{3.334(027)}$
-  \item $A'_2 = (7,121 \pm 0,9563)10^{-7} \si[per-mode=fraction]{\per\nano\meter}$
+  \item $A'_2 = (7,121 \pm 0,9563)10^{-7} \si[per-mode=fraction]{\per\nano\meter\squared}$
 \end{itemize}
-Um nun bestimmen zu können, welche Fall zur Dispersionskurve genommen werden soll, wird
-die Methode der kleinsten Quadrate zunächst bestimmt.
-\begin{equation*}
+Um nun bestimmen zu können, welche Fall für die Dispersionskurve genommen werden soll, wird
+die Methode der kleinsten Quadrate verwendet.
+\begin{equation}
   s^2_n = \frac{1}{z-2} \sum_{i=1}^{z}(n^2(\lambda_i)-A_0-\frac{A_2}{\lambda^2_i})^2 \,\,\, \text{für} \, \lambda >> \lambda_1
   \label{eq:10}
-\end{equation*}
-\begin{equation*}
+\end{equation}
+\begin{equation}
   s^2_{n'} = \frac{1}{z-2} \sum_{i=1}^{z}(n^2(\lambda_i)-A'_0+A'_2 \cdot \lambda^2_i)^2 \,\,\, \text{für} \, \lambda << \lambda_1
   \label{eq:11}
-\end{equation*}
+\end{equation}
 Die eingesetzten Werte in Gleichung \ref{eq:10} und \ref{eq:11} ergeben aufsummiert.
 \begin{itemize}
-  \item $s^2_n = (1,928 \pm 0)10^{-5}$
-  \item $s^2_{n'} = 0,0003 \pm 0$
+  \item $s^2_n = \num{1.9286925(1)e-5}$
+  \item $s^2_{n'} = \num{3.28783880(6)e-4}$
 \end{itemize}
 Da $s^2$ möglichst klein sein soll, wird die Formel \ref{eq:3} für $\lambda >> \lambda_1$ genutzt.
 Es folgt für den Brechungsindex folgende Gleichung
 \begin{equation}
-  n(\lambda)= \sqrt{2,912 + \frac{58468}{\lambda^2}}.
+  n(\lambda)= \sqrt{A_0 + \frac{A_2}{\lambda^2}}.
   \label{eq:12}
 \end{equation}
 
@@ -100,11 +101,29 @@ Mithilfe der Dispersionsgleichung \ref{eq:12} wird die \textbf{Abbesche Zahl} be
 Sie sagt aus wie die Farbzerstreuung von dem \textbf{SF15} ist.
 Die Gleichungen lautet
 \begin{equation}
-  \nu = \frac{n_D -1}{n_f-n_c}.
+  \nu = \frac{n_D -1}{n_F-n_C}.
   \label{eq:13}
 \end{equation}
-Mit Gleichung \ref{eq:12} werden die Ergebnisse in der Tabelle \ref{tab:3}
+Die Ergebnisse in der Tabelle \ref{tab:3}
 dargestellt. Für die Wellenlänge werden die Fraunhoferschen Linien verwendet.
+Der Fehler lässt sich mit der Gaußfehlerfortpflanzung
+\begin{equation}
+  \sigma^2 = \sum_i^N (\frac{\partial A_i}{\partial x_i})^2 \cdot (\Delta A_i)^2
+  \label{fel:3}
+\end{equation}
+berechnen.
+Es folgt somit für Gleichung \ref{eq:13}
+\begin{equation*}
+  \sigma_{n} = \sqrt{(\frac{\partial n}{\partial A_0} \cdot \sigma_{A_0})^2 + (\frac{\partial n}{\partial A_2} \cdot \sigma_{A_2})^2}
+\end{equation*}
+Mit
+\begin{equation*}
+  \frac{\partial n}{\partial A_0} = \frac{1}{2} \frac{1}{\sqrt{A_0 + \frac{A_2}{\lambda^2}}}
+\end{equation*}
+und
+\begin{equation*}
+  \frac{\partial n}{\partial A_2} = \frac{1}{2 \lambda^2} \frac{1}{\sqrt{A_0 + \frac{A_2}{\lambda^2}}}
+\end{equation*}
 \begin{table}[H]
   \centering
   \caption{Bestimmung der Brechungsindices mit den Fraunhoferschen Linien.}
@@ -113,19 +132,32 @@ dargestellt. Für die Wellenlänge werden die Fraunhoferschen Linien verwendet.
     \toprule
     $\text{Linie}$ & $\text{Wellenlänge} \,/\,\si{\nano\meter}$ & $\text{Brechungsindex}$ &$n$\\
     \midrule
-    $\lambda_c$ & 656 & 1,746 & $n_c$\\
-    $\lambda_D$ & 589 & 1,755 & $n_D$\\
-    $\lambda_F$ & 486 & 1,778 & $n_f$\\
+    $\lambda_C$ & 656 & $1,746 \pm 0,002$ & $n_C$\\
+    $\lambda_D$ & 589 & $1,755 \pm 0,003$ & $n_D$\\
+    $\lambda_F$ & 486 & $1,778 \pm 0,003$ & $n_F$\\
     \bottomrule
   \end{tabular}
 \end{table}
 Mit Gleichung \ref{eq:13} lautet die \textbf{Abbesche Zahl}
 \begin{equation*}
-  \nu = 23,66
+  \nu = \num{23.8(7)}
 \end{equation*}
-
+Der Fehler ergibt sich mit \ref{fel:3} zu:
+\begin{equation*}
+  \sigma_\nu = \sqrt{(\frac{\partial \nu}{\partial n_D} \sigma_{n_D})^2 + (\frac{\partial \nu}{\partial n_f} \sigma_{n_f})^2 + (\frac{\partial \nu}{\partial n_c} \sigma_{n_c})^2}
+\end{equation*}
+Mit
+\begin{equation*}
+  \frac{\partial \nu}{\partial n_D} = \frac{1}{n_f - n_c}
+\end{equation*}
+\begin{equation*}
+  \frac{\partial \nu}{\partial n_f} = -\frac{n_D - 1}{(n_f -n_c)^2}
+\end{equation*}
+\begin{equation*}
+  \frac{\partial \nu}{\partial n_c} = \frac{n_D - 1}{(n_f -n_c)^2}
+\end{equation*}
 Für das Auflösungsvermögen werden zwei benachbarte Wellenlängen
-als Wellenlängeunterschied $\Delta\lambda$ bezeichnet. Der Wellenlängeunterschied $\Delta\lambda$ muss
+als Wellenlängenunterschied $\Delta\lambda$ bezeichnet. Der Wellenlängeunterschied $\Delta\lambda$ muss
 so gering sein, dass sie gerade vom Gerät getrennt werden können.
 Der Ausdruck für das Auflösungsvermögen lautet
 \begin{equation*}
@@ -141,7 +173,7 @@ Nun wird die Gleichung \ref{eq:3} nach $\lambda$ abgeleitet und in die Gleichung
 eingesetzt.
 Es folgt für das Auflösungsvermögen in Betrag:
 \begin{equation}
-  |A| = \frac{b\cdot58468}{\lambda^3 \sqrt{2,912 +\frac{58468}{\lambda^2}}}
+  |A| = \frac{b \cdot A_2}{\lambda^3 \sqrt{A_0 +\frac{A_2}{\lambda^2}}}
 \end{equation}
 Die Ergebnisse werden in der Tabelle \ref{tab:4} dargestellt.
 \begin{table}[H]
@@ -152,16 +184,26 @@ Die Ergebnisse werden in der Tabelle \ref{tab:4} dargestellt.
     \toprule
     $\text{Linie}$ & $\text{Wellenlänge} \,/\,\si{\nano\meter}$ & $\text{Auflösungsvermögen}$\\
     \midrule
-    $\lambda_c$ & 656 & 3559,02\\
-    $\lambda_D$ & 589 & 4890,81\\
-    $\lambda_F$ & 486 & 8596,44\\
+    $\lambda_c$ & 656 & $\num{3558.86(10874)}$\\
+    $\lambda_D$ & 589 & $\num{4890.60(14866)}$\\
+    $\lambda_F$ & 486 & $\num{8596.08(25811)}$\\
     \bottomrule
   \end{tabular}
 \end{table}
-
+Mit der Gleichung \ref{fel:3} lautet der Fehler:
+\begin{equation*}
+  \sigma_A = \sqrt{(\frac{\partial A} {\partial A_0} \sigma_{A_0})^2 + (\frac{\partial A}{\partial A_2} \sigma_{A_2})^2}
+\end{equation*}
+Mit
+\begin{equation*}
+  \frac{\partial A} {\partial A_0} = -\frac{b\cdot A_2}{2\lambda^3 \sqrt{(A_0 + \frac{A_2}{\lambda^2})^3}}
+\end{equation*}
+\begin{equation*}
+  \frac{\partial A}{\partial A_2} = \frac{b (A_2+2A_0\lambda^2)}{2\lambda^5 \sqrt{(A_0 + \frac{A_2}{\lambda^2})^3}}
+\end{equation*}
 Um nun die nächste abgelegene Absorptionstelle $\lambda_1$ zu bestimmen wird
-mit der Lösung der Dispersionsgleichung ein Koeffizentenvergleich von $A_0 \, ,\, A_2$ gemacht.
-Der Vergleich wird mit der Gleichung \ref{eq:3} durchgeführt.
+mit der Lösung der Dispersionsgleichung ein Koeffizentenvergleich von $A_0 \, ,\, A_2$ mit
+der Gleichung \ref{eq:3} durchgeführt.
 Somit ergeben sich für
 \begin{equation*}
   A_0 = 1 +\underbrace{\frac{N_h q_h^2}{4 \pi^2 c^2 \epsilon_0 m_h}}_\beta \lambda^2
@@ -184,7 +226,7 @@ Die Werte eingesetzt ergibt sich zu:
 \begin{equation*}
   \lambda_1 = \SI{174,9(27)}{\nano\meter}
 \end{equation*}
-Der Fehler wird mit der Gaußfehlerfortpflanzung berechnet.
+Der Fehler wird mit Gleichung \ref{fel:3} berechnet.
 Die Formel dazu lautet:
 \begin{equation*}
   \sigma_{\lambda_1} = \sqrt{(\frac{d\lambda_1}{dA_0} \cdot \sigma_{A_0})^2 + (\frac{d\lambda_1}{dA_2} \cdot \sigma_{A_2})^2}

@@ -51,7 +51,7 @@ a_1 = ufloat(params[0], errors[0])
 b_1 = ufloat(params[1], errors[1])
 c_1 = ufloat(params1[0], errors1[0])
 d_1 = ufloat(params1[1], errors1[1])
-
+W = np.array([656, 589, 486])
 #Berechnung der Abweichungsquadrate
 
 S1= (y - a_1 - b_1/x**2)**2
@@ -59,10 +59,17 @@ S2= (y - c_1 + d_1 * x**2)**2
 
 L1 = unumpy.sqrt(b_1 / (a_1 - 1))
 
+n = unumpy.sqrt(a_1 + (b_1/W**2))
+
+A = ((3e7)*b_1)/(W**3 * unumpy.sqrt(a_1 + (b_1/W**2)))
+Z = (n[1] - 1)/(n[2] - n[0])
 print('Berechnung der Abweichungsquadrate:')
 print('S_1=', 1/5 * sum(S1))
 print('S_2=', 1/5 * sum(S2))
 print('Fehler der Absorptionstelle=', L1)
+print('Brechungsindices=', n)
+print('Auflösungsvermögen', A)
+print('Abbesche Zahl =', Z)
 
 #Fehlerrechnung
 p, e = np.genfromtxt('content/data2.txt', unpack=True)
