@@ -1,1 +1,89 @@
 \section{Auswertung}
+
+Zunächst wird die Wellenlänge des Lasers bestimmt. Dazu wird die Gleichung
+\ref{eq:} verwendet. Dabei ist $\Delta d_0 = \SI{5}{\milli\meter}$. Allerdings muss
+noch der Hebel-Untersetzungsfaktor $u = \frac{1}{5,017}$ bei der Vergrößerung $\Delta d_0$
+beachtet werden. Damit ergibt sich für die Vergrößerung $\Delta d = \SI{0.997}{\milli\meter}$.
+Die Messwerte und die bestimmten Wellenlängen sind in Tabelle \ref{tab:1} dargestellt.
+
+\begin{table}[H]
+  \centering
+  \caption{Darstellung der Messwerte und der Wellenlängen.}
+  \label{tab:1}
+  \begin{tabular}{c c}
+    \toprule
+    $z$ & $\lambda \, / \, \si{\nano\meter}$ \\
+    \midrule
+    3376 & 590 \\
+    3065 & 650 \\
+    3100 & 643 \\
+    3007 & 663 \\
+    3001 & 664 \\
+    3039 & 656 \\
+    3112 & 640 \\
+    3025 & 659 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Nun wird der Mittelwert und die Standartabweichung mit den Gleichungen \ref{e:1} und
+\ref{e:2} bestimmt.
+
+
+\begin{equation}
+    \bar{\lambda} = \frac{1}{8} \sum_{i=1}^{8} \lambda_i
+    \label{e:1}
+\end{equation}
+\begin{equation}
+  \Delta \bar{\lambda} = \frac{1}{\sqrt{8}\sqrt{7}} \sqrt{\sum_{i=1}^{8}(\lambda_i-\bar{\lambda})^2}
+  \label{e:2}
+\end{equation}
+
+Somit ergibt sich für die gemittelte Wellenlänge
+
+\begin{equation*}
+  \bar{\lambda} = \SI{646(8)}{\nano\meter}.
+\end{equation*}
+
+Daraufhin wird der Brechungsindex von Luft bestimmt. Die Messwerte sind in Tabelle
+\ref{tab:2} dargestellt. Aus diesen Messwerten wird zunächst mit Hilfe der Gleichung
+\ref{eq:} $\Delta n$ bestimmt. Bei der Gleichung ist $\lambda = \SI{635}{\nano\meter}$.
+Mit dem $\Delta n$ wird nun mit der Gleichung \ref{eq:} $n$ bestimmt.
+
+\begin{table}[H]
+  \centering
+  \caption{Darstellung der Messwerte für den Brechungsindex und den errechneten Brechungsindex.}
+  \label{tab:2}
+  \begin{tabular}{c c}
+    \toprule
+    $z$ & $n$ \\
+    \midrule
+    34 & $\num{1.000273}$ \\
+    33 & $\num{1.000265}$ \\
+    31 & $\num{1.000249}$ \\
+    32 & $\num{1.000257}$ \\
+    31 & $\num{1.000249}$ \\
+    32 & $\num{1.000257}$ \\
+    33 & $\num{1.000265}$ \\
+    32 & $\num{1.000257}$ \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Nun werden die errechneten Brechungsindices wieder gemittelt und es wird die
+Standartabweichung bestimmt mit den Gleichungen \ref{e:3} und \ref{e:4}.
+
+\begin{equation}
+    \bar{n} = \frac{1}{8} \sum_{i=1}^{8} n_i
+    \label{e:3}
+\end{equation}
+\begin{equation}
+  \Delta \bar{n} = \frac{1}{\sqrt{8}\sqrt{7}} \sqrt{\sum_{i=1}^{8}(n_i-\bar{n})^2}
+  \label{e:4}
+\end{equation}
+
+Damit ergibt sich für den Brechungsindex von Luft
+
+\begin{equation*}
+  \bar{n} = \num{1.000259(3)}.
+\end{equation*}
