@@ -14,16 +14,16 @@ lässt sich die elektrische Feldstärke $\vec{E}$ darstellen als
 Dabei ist $k = \frac{2\pi}{\lambda}$ die Wellenzahl mit $\lambda$ als Wellenlänge, $\omega$ die Kreisfrequenz
 und $\delta$ ein beliebiger Phasenwinkel. Für solche Gleichungen gilt das Superpositionsprinzip.
 Das Prinzip sagt aus, dass in einem Raumpunkt $P$ mehrere Lichtwellen überlagern können. Da es keine Möglichkeit gibt,
-solche Lichtwellen mit hoher Frequenz messen zukönnen, werden lediglich die Intensitäten $I$ gemessen. Es gilt folgender Zusammenhang
+solche Lichtwellen zu messen, werden lediglich die Intensitäten $I$ gemessen. Es gilt folgender Zusammenhang
 \begin{equation*}
   I = const |\vec{E}|^2
 \end{equation*}
-Eine Addition zweier Lichtwellen ergeben sich somit zu
+Eine Addition zweier Intensitäten von Lichtwellen ergibt sich somit zu
 \begin{equation*}
   I_{1+2} = 2const\vec{E}^2_0 (1+cos(\delta_2 - \delta_1)).
 \end{equation*}
 Der zweite Summand bildet den \textbf{Interferenzterm} und ist abhängig von der Phase $(\delta_2 - \delta_1)$
-der einzelnen Wellen. Zu erkennen ist, dass bei ungerades Vielfaches von $\pi$ der Term verschwindet und somit keine
+der einzelnen Wellen. Zu erkennen ist, dass bei ungerades Vielfaches von $\pi$ der Term verschwindet und somit destruktive
 Interferenzen auftreten.
 \subsection{Begriff der Kohärenz}
 In diesem Teil wird noch die Kohärenz näher erläutert. Aus Erfahrung treten bei zwei unabhängigen Lichtquellen
@@ -38,23 +38,25 @@ Dies wird zum Beispiel mit einem \textbf{LASER}(=light amplification by stimulat
 Bei dem Michelson-Interferometer wird ein Lichtstrahl in zwei Teilstrahlen aufgeteilt. Eine schematische Darstellung
 ist in Abbildung \ref{abb:1} dargestellt.
 \begin{figure}[H]
+  \centering
   \includegraphics[width=\textwidth]{content/Aufbau.png}
-  \caption{schematische Darstellung des Michelson-Interferometers.\cite{1}}
+  \caption{Schematische Darstellung des Michelson-Interferometers.\cite{1}}
   \label{abb:1}
 \end{figure}
-Im Zentrum befindet sich ein Fresnelschen Biprisma. Sie lässt ein Teil des Strahls
-durchgehen während der andere Teil eine senkrete Änderung der Richtung erfährt. Dabei sind
-$S_1$ und $S_2$ Spiegeln, die den Teilstrahl zurück zum Prisma reflektieren.
-Am Primsa werden sie erneut geteilt und am Detektor $D$ aufgenommen.
-Wichtig für die Messung ist, dass am Detektor $D$ Interferenzen zu sehen ist.
-Dafür müssen die beiden Teilstrahl kohärent sein. Dies wird möglich gemacht,
+Im Zentrum befindet sich ein Fresnelschen Biprisma. Es lässt ein Teil des Strahls
+durchgehen während ein anderer Teil eine senkrechte Änderung der Richtung erfährt. Dabei sind
+$S_1$ und $S_2$ Spiegel, die den Teilstrahl zurück zum Prisma reflektieren.
+Am Prisma werden sie erneut geteilt und am Detektor $D$ aufgenommen.
+Wichtig für die Messung ist, dass am Detektor $D$ Interferenzen zu sehen sind.
+Dies wird möglich gemacht,
 wenn die Streckenabstände zu den beiden Spiegeln gleich sind und zur Strecke zum Spiegel $S_2$ eine
 Kompensationsplatte liegt. Die Kompensationsplatte muss da liegen, da der Strahl von $S_2$ einmal durchs
-Prisma geht, während der von $S_1$ kommende Strahl dreimal durchs Prisma geht.
-Sind die Voreinstellung eingestellt, lässt sich am Detektor $D$ einen Gangunterschied von $\frac{\lambda}{2}$ feststellen.
+Prisma geht, während der von $S_1$ kommende Strahl dreimal durchs Prisma geht. Der Gangunterschied
+muss fast gleich sein, da die Strahlenbündel sonst nicht kohärent wären.
+Nun lässt sich am Detektor $D$ einen Gangunterschied von $\frac{\lambda}{2}$ feststellen.
 Die dort auftreffenden Strahlen löschen sich aus. Wird nun ein Spiegel um $\Delta d$ verschoben,
 so ändert sich die Intensität am Detektor $D$. Nun werden die auftretenden Helligkeitsmaxima abgezählt.
-Es gilt daher folgender Zusammenhang zwischen Verschiebung des Speigels und der Überlagerung der Strahlen
+Es gilt daher folgender Zusammenhang zwischen Verschiebung des Spiegels und der Überlagerung der Strahlen
 \begin{equation}
   \Delta d = z \frac{\lambda}{2}.
   \label{eq:1}
@@ -64,6 +66,7 @@ Eine weitere Möglichkeit um Interferenz zu erzeugen ist, dass sie durch ein Med
 einem geändertem Brechungsindex $n+\Delta n$ durchlaufen.
 Eine schematische Darstellung ist in Abbildung \ref{abb:2} zu sehen.
 \begin{figure}[H]
+  \centering
   \includegraphics[width=0.5\textwidth]{content/Aufbau2.png}
   \caption{Weitere Darstellung des Michelson-Interferometers zur Bestimmung des Brechungsindex.\cite{1}}
   \label{abb:2}
@@ -76,13 +79,13 @@ Helligkeitsmaxima auf. Es gilt nun folgender Zusammenhang
   b\Delta n = z \frac{\lambda}{2}
   \label{eq:2}
 \end{equation}
-Aus der klassichen Dispersionstheorie lässt sich zwischen dem Brechungsindex $n$ und
-der Zahl $N$, dass von den Lichtwellen erzwungene Schwinungen pro Volomenheitheit ist, durch Näherung folgender
+Aus der klassischen Dispersionstheorie lässt sich zwischen dem Brechungsindex $n$ und
+der Zahl $N$, welche die von den Lichtwellen erzwungenen Schwingungen pro Volumeneinheit ist, durch Näherung folgender
 Zusammenhang schreiben:
 \begin{equation*}
   n = 1+\frac{f(\lambda)}{2}N
 \end{equation*}
-Voraussetzung ist das Luft im Berech von $0$ bis $1$ Bar sich als ideales Gas verhält.
+Voraussetzung ist das Luft im Bereich von $0$ bis $1$ Bar sich als ideales Gas verhält.
 Daraus folgt das die Anzahl der Moleküle $N$ gegeben ist durch
 \begin{equation*}
   N = \frac{p}{T} \frac{T_0}{p_0} N_L
@@ -98,11 +101,11 @@ Nun soll die klassische Dispersionstheorie erfüllt werden und somit gilt dann
 \begin{equation*}
   n = 1 + \Delta n \frac{T}{T_0} \frac{p_0}{\Delta p}
 \end{equation*}
-Mit der Gleichung \ref{eq:2} kann folgnder Zusammenhang zwischen Druck und Brechungsindex
+Mit der Gleichung \ref{eq:2} kann folgender Zusammenhang zwischen Druck und Brechungsindex
 hergeleitet werden. Dazu wird aus Gleichung \ref{eq:2} nach $\Delta n$ umgeformt und
 in die vorherige Gleichung eingesetzt. Es folgt
 \begin{equation}
   n = 1 + \frac{z \lambda}{2b} \frac{T}{T_0} \frac{p_0}{\Delta p}.
   \label{eq:3}
 \end{equation}
-Dabei verhält sich die Termperatur $\frac{T}{T_0} \approx 1$. 
+Dabei verhält sich die Temperatur $\frac{T}{T_0} \approx 1$.
