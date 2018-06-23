@@ -113,3 +113,43 @@ print('b =', params[2], '+/-', errors[2])
 print('d =', params[3], '+/-', errors[3])
 
 #Messung Vergleichen
+
+x, I = np.genfromtxt('content/data3.txt', unpack=True)
+
+p = x / 1000     # x / L
+l = 635 * 10**(-9)
+#shiftdop = -0.000180171874364
+#shiftp = p - shiftdop
+
+plt.plot(p, I, 'kx', label='Messwerte Doppelspalt')
+
+
+def d(x, a, s, b):
+    y = a * (np.cos((np.pi * s * np.sin(x))/l)**2) * ((l/(np.pi * b * np.sin(x)))**2) * (np.sin((np.pi * b * np.sin(x))/l)**2)
+    return y
+
+def e(x, a, b, c):
+    y = (6241.94353392/1635) * a * ((l/(np.pi * np.sin(x)))**2) * (np.sin((np.pi * b * np.sin(x))/l)**2) + c
+    return y
+
+t = np.linspace(min(p), max(p), 1000)
+
+A0dop = 6241.94353393
+sdop = 0.000247560330967
+bdop = 0.000161537747014
+plt.plot(t, d(t, A0dop, sdop, bdop), 'b-', label='Doppelspalt')
+
+A0sing = 71640326558.1
+bsing = 0.000150948424091
+csing = 8.53870376481
+plt.plot(t, e(t, A0sing, bsing, csing), 'r-', label='Einzelspalt')
+plt.xlabel(r'$\varphi$ / rad')
+plt.ylabel('Strom proportional zur Intensität / nA')
+plt.legend(loc='best')
+plt.grid()
+plt.tight_layout()
+plt.savefig('plot4.pdf')
+plt.show()
+
+
+print(d((0.000001 / 1000), A0dop, sdop, bdop))
