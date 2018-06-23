@@ -1,4 +1,4 @@
-# Erste Messung am Spalt mit b =0.15 mm 
+# Erste Messung am Spalt mit b =0.15 mm
 #Abstand /mm | I/µA
 24    0.44
 23.75 0.46
