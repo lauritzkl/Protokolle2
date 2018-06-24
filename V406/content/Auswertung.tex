@@ -1,32 +1,32 @@
 \section{Auswertung}
 \subsection{Vorbereitung}
-Zunächst werden wichige Daten für die Messung notiert.
+Zunächst werden wichtige Daten für die Messung notiert.
 Als erstes wird der Abstand $L$ von der Quelle zur Photosonde ausgemessen.
-Sie beträgt
+Er beträgt
 \begin{equation*}
-  L = \SI{1}{\metre}.
+  L = \SI{1}{\meter}.
 \end{equation*}
-Die Wellenlänge des verwendenten Lasers beträgt:
+Die Wellenlänge des verwendeten Lasers beträgt
 \begin{equation*}
-  \lambda = \SI{635}{\nano\metre}.
+  \lambda = \SI{635}{\nano\meter}.
 \end{equation*}
 Zu beachten ist, dass bevor die Messung beginnt, die Photosonde eine
-Intensität gemssen hat. Diese Intensität kam zustande, da der Raum nicht vollständig
-abgedunkelt war.
+Intensität misst. Diese Intensität kommt zustande, da der Raum nicht vollständig
+abgedunkelt werden kann.
 Sie beträgt:
 \begin{equation*}
   I_{du} = \SI{9.3}{\nano\ampere}.
 \end{equation*}
 Weitere wichtige Daten sind die Spaltbreiten vom einfach Spalt sowie Doppelspalt.
 \begin{itemize}
-  \item $\text{Einfach Spalt 1:} \, b_1 = \SI{0.15}{\milli\metre}$
-  \item $\text{Einfach Spalt 2:} \, b_2 = \SI{0.075}{\milli\metre}$
-  \item $\text{Doppelspalt:} \, b_D = \SI{0.15}{\milli\metre} \,\,\ \text{sowie Gitterkonstante:}\, g = \SI{0.5}{\milli\metre}$
+  \item Einfach Spalt 1: $ b_1 = \SI{0.15}{\milli\metre}$
+  \item Einfach Spalt 2: $ b_2 = \SI{0.075}{\milli\metre}$
+  \item Doppelspalt: $ b_D = \SI{0.15}{\milli\metre}$ sowie Gitterkonstante: $g = \SI{0.5}{\milli\metre}$
 \end{itemize}
 \subsection{Messung am einfach Spalt 1}
-Es werden die Abstand $x$ vom Hauptmaxima nach links und rechts sowie deren Intensitäten $I$
-an den jeweiligen Stellen notiert. Um den Winkel $\Phi$ zu bestimmen wird $\Phi \approx \frac{x}{L}$
-angenommen.
+Es werden die Abstände $x$ vom Hauptmaxima nach links und rechts sowie deren Intensitäten $I$
+an den jeweiligen Stellen notiert. Um den Winkel $\varphi$ zu bestimmen wird Gleichung
+\ref{eq:3} verwendet.
 Die Daten sind in der Tabelle \ref{tab:1} dargestellt.
 \begin{table}[H]
   \centering
@@ -70,21 +70,23 @@ Die Daten sind in der Tabelle \ref{tab:1} dargestellt.
     \bottomrule
   \end{tabular}
 \end{table}
-Mit den Daten aus Tabelle \ref{tab:1} werden sie gegeneinander aufgetragen und sind in der Abbildung
-\ref{abb:4} dargestellt.
+In Abbildung \ref{abb:4} sind die Messwerte und die Ausgleichsrechnung graphisch Dargestellt.
+
 \begin{figure}[H]
   \centering
   \includegraphics{plot1.pdf}
-  \caption{Darstellung der Messwerte sowie Regression.}
+  \caption{Darstellung der Messwerte für einfach Spalt 1, sowie die Regression.}
   \label{abb:4}
 \end{figure}
+
 Die Regression wurde mit Python 3.6 durchgeführt.
 Dabei wurde die Gleichung  \ref{eq:1} verwendet.
 Es folgt für die Spaltbreite
 \begin{equation*}
   b_{mess,1} = \SI{0.1494(0019)}{\milli\metre}
 \end{equation*}
-Dies ist eine Abwichung von $0,4\%$ vom Literaturwert.
+Dies ist eine Abweichung von $0,4\%$ vom Literaturwert.
+
 \subsection{Messung am einfach Spalt 2}
 Das Verfahren ist die selbe wie beim \textbf{Einfach Spalt 1}. Es werden nun die Daten
 in der Tabelle \ref{tab:2} dargestellt.
@@ -131,20 +133,23 @@ in der Tabelle \ref{tab:2} dargestellt.
     \bottomrule
   \end{tabular}
 \end{table}
-Mit den Daten aus Tabelle \ref{tab:2} werden sie gegeneinander aufgetragen und sind in der Abbildung
+Die Daten aus Tabelle \ref{tab:2} werden in der Abbildung
 \ref{abb:5} dargestellt.
+
 \begin{figure}[H]
   \centering
   \includegraphics{plot2.pdf}
-  \caption{Darstellung der Messwerte sowie Regression.}
+  \caption{Darstellung der Messwerte vom einfach Spalt 2, sowie die Regression.}
   \label{abb:5}
 \end{figure}
-Die Regression wurde mit Python 3.6 durchgeführt. Auch hier wurde die Gleichung \ref{eq:1} verwendet
+
+Die Regression wird mit Python 3.6 durchgeführt. Auch hier wird die Gleichung \ref{eq:1} verwendet
 Es folgt für die Spaltbreite:
 \begin{equation*}
   b_{mess,2} = \SI{0,07859(65)}{\milli\metre}
 \end{equation*}
-Dies ist eine Abwichung von $4,79\%$ vom Literaturwert.
+Dies ist eine Abweichung von $4,79\%$ vom Literaturwert.
+
 \subsection{Doppelspalt}
 Die Messung zu dieser Versuchsreihe sind in der Tabelle \ref{tab:3} dargestellt.
 \begin{table}[H]
@@ -206,30 +211,43 @@ Die Messung zu dieser Versuchsreihe sind in der Tabelle \ref{tab:3} dargestellt.
     \bottomrule
   \end{tabular}
 \end{table}
-Die Daten werden gegeneinander aufgetragen und in der Abbildung \ref{abb:6} dargestellt.
+Die Daten werden in der Abbildung \ref{abb:6} dargestellt.
+
 \begin{figure}[H]
   \centering
   \includegraphics{plot3.pdf}
-  \caption{Darstellung der Messwerte sowie Regression.}
+  \caption{Darstellung der Messwerte für den Doppelspalt, sowie die Regression.}
   \label{abb:6}
 \end{figure}
-Die Regression wurde mit Python 3.6 durchgeführt. Hier wurde die Gleichung \ref{eq:2} verwendet.
+
+Die Regression wird wieder mit Python 3.6 durchgeführt. Hier wurde die Gleichung \ref{eq:2} verwendet.
 Somit ergibt sich für die Spaltbreite:
+
 \begin{equation*}
   b_{mess,3} = \SI{0,1633(0042)}{\milli\metre}
 \end{equation*}
-Dies ist eine Abwichung von $8,86\%$ vom Literaturwert.
+
+Dies ist eine Abweichung von $8,86\%$ vom Literaturwert.
 Für die Gitterkonstante ergibt sich dabei:
+
 \begin{equation*}
   g_{mess} = \SI{0.509(3)}{\milli\metre}
 \end{equation*}
+
 Dies ist eine Abweichung von $0,02 \%$ vom Literaturwert.
-\subsection{Vergleich vom einfach Spalt mit Doppelspalt}
-Die Daten aus Tabelle \ref{tab:} und \ref{tab:} werden nun in Abbildung \ref{abb:}
-aufgetragen und verglichen.
-%\begin{figure}[H]
-%  \centering
-%  \includegraphics{plot2.pdf}
-%  \caption{Darstellung der Messwerte sowie Regression.}
-%  \label{abb:}
-%\end{figure}
+
+\subsection{Vergleich von der Beugungsfigur vom Einzelspalt und Doppelspalt}
+
+Zuletzt wird noch die Beugungsfiguren verglichen. Dazu werden die Messwerte mit der
+Beugungsfigur von dem Doppelspalt dargestellt. Außerdem wird die Beugungsfigur für einen
+Einzelspalt auch dargestellt. Das Ergebnis ist in Abbildung \ref{abb:7} dargestellt.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics{plot4.pdf}
+  \caption{Vergleich von der Beugungsfigur vom einfach Spalt und Doppelspalt.}
+  \label{abb:7}
+\end{figure}
+
+Anhand des Graphen ist zu erkennen, dass die Beugungsfigur von einem Einzelspalt
+die Einhüllende der Beugungsfigur von einem Doppelspalt ist.
