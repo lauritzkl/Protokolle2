@@ -22,7 +22,7 @@ x= 23.75 - z  #Abzug vom Hauptmaxima
 p = x / 1000 #Winkel phi = x /L
 I= y
 l= 635 * 10**(-9)
-
+np.savetxt('content/Winkel1.txt', np.column_stack([p]), header="Der Winkel von Messung 1")
 
 def f(p, a, b, c, d):
    y = a * ((l/(np.pi * np.sin(p - d)))**2) * (np.sin((np.pi * b * np.sin(p - d))/l)**2) + c
@@ -36,7 +36,7 @@ plt.plot(p, I, r'rx', label='Messwerte')
 plt.plot(t, f(t, *params), 'k-', label='Regression')
 plt.legend()
 plt.grid()
-plt.ylabel('Strom proportional zur Intensität / ')
+plt.ylabel('Strom proportional zur Intensität /µA ')
 plt.xlabel(r'$\varphi$ / rad')
 plt.savefig('plot1.pdf')
 plt.close()
@@ -56,7 +56,7 @@ l= 635 * 10**(-9)
 
 
 p = x / 1000 #Winkel phi
-
+np.savetxt('content/Winkel2.txt', np.column_stack([p]), header="Der Winkel von Messung 2")
 def f(p, a, b, c, d):
    y = a * ((l/(np.pi * np.sin(p - d)))**2) * (np.sin((np.pi * b * np.sin(p - d))/l)**2) + c
    return y
@@ -69,7 +69,7 @@ plt.plot(p, y, r'rx', label='Messwerte')
 plt.plot(t, f(t, *params), 'k-', label='Regression')
 plt.legend()
 plt.grid()
-plt.ylabel('Strom proportional zur Intensität / nA')
+plt.ylabel('Strom proportional zur Intensität / µA')
 plt.xlabel(r'$\varphi$ / rad')
 plt.savefig('plot2.pdf')
 plt.close()
@@ -87,8 +87,8 @@ print('d =', params[3], '+/-', errors[3])
 k, y = np.genfromtxt('content/data3.txt', unpack=True)
 x= (24.2 - k)
 l= 635 * 10**(-9)
-
 p = x / 1000 #Winkel phi
+np.savetxt('content/Winkel3.txt', np.column_stack([p]), header="Der Winkel von Messung 3")
 
 def f(p, a, s, b, d):
   y = a * ((np.cos((np.pi * s * np.sin(p - d))/l))**2) * ((l/(np.pi * b * np.sin(p - d)))**2) * ((np.sin((np.pi * b * np.sin(p - d))/l))**2)
@@ -102,7 +102,7 @@ plt.plot(p, y, r'rx', label='Messwerte')
 plt.plot(t, f(t, *params), 'k-', label='Regression')
 plt.legend()
 plt.grid()
-plt.ylabel('Strom proportional zur Intensität / nA')
+plt.ylabel('Strom proportional zur Intensität / µA')
 plt.xlabel(r'$\varphi$ / rad')
 plt.savefig('plot3.pdf')
 plt.close()
@@ -118,30 +118,29 @@ x, I = np.genfromtxt('content/data3.txt', unpack=True)
 
 p = x / 1000     # x / L
 l = 635 * 10**(-9)
-#shiftdop = -0.000180171874364
-#shiftp = p - shiftdop
+shiftdop = -0.000180171874364
+shiftp = p - shiftdop
 
-plt.plot(p, I, 'kx', label='Messwerte Doppelspalt')
+plt.plot(shiftp, I, 'kx', label='Messwerte Doppelspalt')
 
+A0dop = 1.6775075197717908
+sdop = 0.0005084773951663262
+bdop = 0.0001633336719143504
+
+A0sing = 20106583.17271117
+bsing = 0.00014944404494694484
+csing = 0.006199038950450398
 
 def d(x, a, s, b):
     y = a * (np.cos((np.pi * s * np.sin(x))/l)**2) * ((l/(np.pi * b * np.sin(x)))**2) * (np.sin((np.pi * b * np.sin(x))/l)**2)
     return y
 
 def e(x, a, b, c):
-    y = (6241.94353392/1635) * a * ((l/(np.pi * np.sin(x)))**2) * (np.sin((np.pi * b * np.sin(x))/l)**2) + c
+    y = a * ((l/(np.pi * np.sin(x)))**2) * (np.sin((np.pi * b * np.sin(x))/l)**2) + c
     return y
 
 t = np.linspace(min(p), max(p), 1000)
-
-A0dop = 6241.94353393
-sdop = 0.000247560330967
-bdop = 0.000161537747014
 plt.plot(t, d(t, A0dop, sdop, bdop), 'b-', label='Doppelspalt')
-
-A0sing = 71640326558.1
-bsing = 0.000150948424091
-csing = 8.53870376481
 plt.plot(t, e(t, A0sing, bsing, csing), 'r-', label='Einzelspalt')
 plt.xlabel(r'$\varphi$ / rad')
 plt.ylabel('Strom proportional zur Intensität / nA')
