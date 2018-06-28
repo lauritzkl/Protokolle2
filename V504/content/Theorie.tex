@@ -1,1 +1,68 @@
 \section{Zielsetzung}
+In diesem Versuch wird durch den glühelektrischen Effekt freie Elektronen erzeugt. Da die frei erzeugten Elektronen von der Temperatur
+abhängig sind, wird dieser Bereich näher untersucht. Ebenso wird die Austrittsarbeit der Elektronen bestimmt.
+\section{Theorie}
+Es ist bekannt, dass Metalle eine gut elektrische Leitfähigkeit haben. Dies liegt an der gitterartigen Struktur der Metallatome.
+Die Leistungselektronen können sich im Metallinneren frei bewegen. Im Inneren herrscht gegenüber dem
+Außenraum ein Potential $\xi$. Multipliziert mit der Elementarladung $e_0$, leistet das Elektron eine Austrittsarbeit um
+aus dem Inneren heraus zu kommen.
+Dieser Prozess beschreibt ein Potentialtopmodell, was in Abbildung \ref{abb:1} zu sehen ist.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=5 cm, height= 2.5cm]{content/Potentialtopf.png}
+  \caption{Potentialtopf-Modell \cite{1}.}
+  \label{abb:1}
+\end{figure}
+Um Messungen durchführen zu können, muss zunächst die Apparatur näher erläutert werden.
+Es handelt sich, wie in  Abbildung \ref{abb:2} um eine Vakuum-Diode.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=10 cm, height =5cm]{content/Aufbau.png}
+  \caption{Darstellung einer Vakuum-Diode \cite{1}.}
+  \label{abb:2}
+\end{figure}
+An der Kathode werden die frei erzeugte Elektronen durch den Heizstrom emittiert und mit einer Saugspannung zur
+Anode beschleunigt. Sie ist deshalb evakuiert, da sonst die freien Elektronen mit den Gasmolekülen wechselwirken.
+Eine typische Kennlinie zwischen Strom und Spannung ist in Abbildung \ref{abb:3} dargestellt.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=10 cm , height= 5 cm]{content/Kennlinie.png}
+  \caption{Kennlinie einer Vakuum-Diode \cite{1}.}
+  \label{abb:3}
+\end{figure}
+Dabei beschreibt $I_s$ den Sättigungsstrom von den erzeugten Elektronen.
+Im folgenden werden die drei Gebiete näher erläutert.\\
+Das \textbf{Anlaufstromgebiet} zeigt bei einer negativer Spannung ein minimalen Stromfluss. Dies lässt sich durch die
+statistisch verteilte Eigengeschwindigkeit der frei erzeugten Elektronen zurückführen. Es erreichen trotz Gegenspannung
+genug Elektronen, die ein größeres Potential besitzen, die Anode.
+Der Zusammenhang zwischen der Anlaufstromstärke und der Spannung ist gegeben durchführen
+\begin{equation}
+  j(V) = \text{const} \cdot \textbf{exp}\Bigl(\frac{-e_0 V}{k_b T}\Bigr)
+  \label{eq:1}
+\end{equation}
+Dabei ist $V$ das äußere Potential bzw. die Spannung, $T$ die Temperatur und $k_b$ die Bolzmann-Konstante.\\
+Im \textbf{Raumladungsgebiet} erreichen offenbar nicht alle emittierten Elektronen die Anode.
+Dies liegt daran, dass die Geschwindigkeit $v$ der frei erzeugten Elektronen nicht konstant ist. Das hat zur
+Konsequenz, dass die Raumladungsdichte $\rho$ eine Funktion des Ortes ist. Sie nimmt zur Anode hin ab.
+Die Stromdichte $j$ ist gegeben durch:
+\begin{equation*}
+  j = -\rho v
+\end{equation*}
+Da offenbar die Raumladungsdichte $\rho$ den Verlauf der Feldstärke zwischen Anode und Kathode beeinflusst,
+reichen einige Feldlinien von der Anode zur Kathode nicht aus. Da die lineare Proportionalität von Strom und Spannung durch das
+Ohmsche Gesetz hier nicht gegeben ist, lässt sich für diesen Bereich die Langmuir-Schottkysche Raumladungsgleichung
+\begin{equation}
+  j = \frac{4}{9} \epsilon_0 \sqrt{2\frac{e_0}{m_0}} \frac{V^\frac{3}{2}}{a^2}
+  \label{eq:2}
+\end{equation}
+anwenden. Dabei beschreibt $a$ den Abstand zwischen Kathode und Anode und $m_0$ die Masse des Elektrons.\\
+Anschließend geht es in das \textbf{Sättigungsstromgebiet}. Dieses Gebiet beschreibt die Zahl der Elektronen, die pro
+Zeit- und Flächeneinheit aus der Metalloberfläche in Abhängigkeit der Temperatur austreten.
+Die Elektronen erreichen alle die Anode und ist nur von der Austrittsarbeit $e_0 \cdot \Phi$ und Temperatur $T$
+abhängig.
+Durch die Integration über jedes kleine Flächenelement ergibt sich die Richardson-Gleichung
+\begin{equation}
+  j(T) = 4 \pi \frac{e_0 m_0 k_b^2}{h^3} T^2 \textbf{exp}\Bigl(\frac{-e_0 \Phi}{k_bT}\Bigr).
+  \label{eq:3}
+\end{equation}
+Dabei beschreibt $h^3$ das Volumen im Quantenzustand des Phasenraums.
