@@ -67,16 +67,16 @@ e = 1.602e-19
 k = 1.38e-23
 
 
-def f(x, a, b):
-    y = a * np.e**(- b * x)
+def f(x, b, a):
+    y = a * np.e**(- x/b)
     return y
 
 params, covariance_matrix = curve_fit(f, x, y)
 errors = np.sqrt(np.diag(covariance_matrix))
 
-b_1 = ufloat(params[1], errors[1])
+b_1 = ufloat(params[0], errors[0])
 
-T = e/(k * b_1)
+T = (e*b_1)/k
 
 x_plot = np.linspace(min(x), max(x), 1000)
 plt.plot(x, y, 'rx', label='Messwerte')
