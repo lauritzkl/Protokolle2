@@ -76,7 +76,7 @@ errors = np.sqrt(np.diag(covariance_matrix))
 
 b_1 = ufloat(params[0], errors[0])
 
-T = (e*b_1)/k
+T = (0.32*e*b_1)/k
 
 x_plot = np.linspace(min(x), max(x), 1000)
 plt.plot(x, y, 'rx', label='Messwerte')
