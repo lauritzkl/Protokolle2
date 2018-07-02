@@ -99,8 +99,8 @@ $I_s$ ablesen. Der Sättigungsstrom für die einzelnen Stromstärken sind in Tab
 \end{table}
 
 Als nächstes wird das Raumladungsgebiet für die maximale Heizleistung, für $\SI{2.4}{\ampere}$,
-untersucht. Dazu werden die Messwerte aus Tabelle \ref{tab:1} aus dem Raumladungsgebiet
-Graphisch dargestellt, in der Abbildung \ref{abb:7}. Das Raumladungsgebiet geht bis $\SI{60}{\volt}$.
+untersucht. Dazu werden die Messwerte aus Tabelle \ref{tab:1} aus dem Raumladungsgebiet, in der Abbildung \ref{abb:7},
+Graphisch dargestellt. Das Raumladungsgebiet geht bis $\SI{60}{\volt}$.
 Mit diesen Messwerten wird nun eine Ausgleichsrechnung durchgeführt mit Python 3.6.
 Die verwendete Gleichung dabei lautet
 
@@ -127,27 +127,33 @@ Damit ergibt sich der Exponent zu
 Das entspricht einer Abweichung zu dem Langmuir-Schottkyschen Raumladungsgesetz von $22,33 \%$.
 
 Daraufhin wird das Anlaufstromgebiet untersucht. Die Messwerte dieser Messung sind
-in der Tabelle \ref{tab:3} dargestellt.
+in der Tabelle \ref{tab:3} dargestellt. Da es einen Spannungsabfall am Innenwiderstand des
+Nanoamperemeter, der $\SI{1}{\mega\ohm}$ beträgt, gibt müssen die gemessenen Spannungswerte
+korrigiert werden mit der folgenden Gleichung
+
+\begin{equation*}
+  U_\text{korr} = U - R_\text{innen} I.
+\end{equation*}
 
 \begin{table}[H]
   \centering
   \caption{Messwerte für das Anlaufstromgebiet.}
   \label{tab:3}
-  \begin{tabular}{c c}
+  \begin{tabular}{c c c}
     \toprule
-    $ U \, / \, V$ & $ I \, / \, nA$ \\
+    $ U \, / \, V$ & $U_\text{korr} \, / \, V$ & $ I \, / \, nA$ \\
     \midrule
-    0,0 & 135,0 \\
-    0,1 & 105,0 \\
-    0,2 &  79,0 \\
-    0,3 &  56,0 \\
-    0,4 &  40,0 \\
-    0,5 &  20,0 \\
-    0,6 &  18,5 \\
-    0,7 &  11,5 \\
-    0,8 &   7,0 \\
-    0,9 &   4,4 \\
-    1,0 &   2,6 \\
+    0,0 & -0,135 & 135,0 \\
+    0,1 & -0,005 & 105,0 \\
+    0,2 &  0,121 &  79,0 \\
+    0,3 &  0,244 &  56,0 \\
+    0,4 &  0,360 &  40,0 \\
+    0,5 &  0,480 &  20,0 \\
+    0,6 &  0,582 &  18,5 \\
+    0,7 &  0,689 &  11,5 \\
+    0,8 &  0,793 &   7,0 \\
+    0,9 &  0,896 &   4,4 \\
+    1,0 &  0,997 &   2,6 \\
     \bottomrule
   \end{tabular}
 \end{table}
@@ -167,7 +173,7 @@ in Abbildung \ref{abb:8} dargestellt.
 Die Temperatur ergibt sich somit zu
 
 \begin{equation*}
-  T = \SI{}{\kelvin}.
+  T = \SI{4340(250)}{\kelvin}.
 \end{equation*}
 
 Nun wird die Temperatur bei denen die einzelnen Kennlinien bestimmt wurden mittels
@@ -177,7 +183,7 @@ einer Leistungsbilanz bestimmt. Die aus dem Energiesatz hergeleitete Gleichung l
   I_f U_f = f \eta \sigma T^4 + N_{WL}.
 \end{equation*}
 
-Dabei ist $f$ die emittierende Kathodenoberfläche $f = \SI{0.32}{\centi\meter\squared}$,
+Dabei ist $f$ die emittierende Kathodenoberfläche $f = \SI{0.35}{\centi\meter\squared}$,
 $\eta$ der Emissionsgrad $\eta = 0,28$, $\sigma$ ist die Strahlungskonstante $\sigma = \SI{5.7e-12}{\watt\per\centi\meter\kelvin\tothe{4}}$
 und $N_{WL}$ ist die Wärmeleitung, die hier zu $N_{WL} = \SI{1}{\watt}$ abgeschätzt wird.
 
@@ -206,7 +212,7 @@ Als letzte wird noch die Austrittsarbeit des Kathodenmaterials bestimmt. Dafür 
 die Gleichung \ref{eq:3} nach der Austrittsarbeit $\Phi$ umgeformt
 
 \begin{equation*}
-  \Phi = - \frac{k_b T}{e_0} \cdot \ln \left(\frac{I_s h^3}{4 \pi e_0 m_0 k_b^2 T^2}\right).
+  \Phi = - \frac{k_b T}{e_0} \cdot \ln \left(\frac{I_s h^3}{4 \pi f e_0 m_0 k_b^2 T^2}\right).
 \end{equation*}
 
 Die Ergebnisse für die einzelnen Kennlinien sind in Tabelle \ref{tab:5} dargestellt.
@@ -219,11 +225,11 @@ Die Ergebnisse für die einzelnen Kennlinien sind in Tabelle \ref{tab:5} dargest
     \toprule
     $I_s \, / \, mA$ & $T \, / \, K$ & $\Phi \, / \, eV$ \\
     \midrule
-    0,018 & 1892,91 & 4,546 \\
-    0,044 & 1896,01 & 4,513 \\
-    0,102 & 1976,87 & 4,577 \\
-    0,438 & 2103,56 & 4,628 \\
-    1,550 & 2253,04 & 4,738 \\
+    0,018 & 1892,91 & 4,994 \\
+    0,044 & 1896,01 & 4,974 \\
+    0,102 & 1976,87 & 5,060 \\
+    0,438 & 2103,56 & 5,148 \\
+    1,550 & 2253,04 & 5,300 \\
     \bottomrule
   \end{tabular}
 \end{table}
@@ -242,5 +248,5 @@ mit den folgenden Gleichungen bestimmt:
 Damit ergibt sich die gemittelte Austrittsarbeit zu
 
 \begin{equation*}
-  \bar{\Phi} = \SI{4.600(40)}{\eV}.
+  \bar{\Phi} = \SI{5.095(60)}{\eV}.
 \end{equation*}

@@ -61,14 +61,15 @@ plt.close()
 
 print('a=', params[0], '+-', errors[0])
 
-x, y = np.genfromtxt('content/data6.txt', unpack=True)
+x_1, y = np.genfromtxt('content/data6.txt', unpack=True)
 #y = y_1 * 10**(-9)
 e = 1.602e-19
 k = 1.38e-23
 
+x = x_1 - 10**(-3) * y
 
 def f(x, b, a):
-    y = a * np.e**(- x/b)
+    y = a * np.exp(-b * x)
     return y
 
 params, covariance_matrix = curve_fit(f, x, y)
@@ -76,7 +77,7 @@ errors = np.sqrt(np.diag(covariance_matrix))
 
 b_1 = ufloat(params[0], errors[0])
 
-T = (0.32*e*b_1)/k
+T = e / (k*b_1)
 
 x_plot = np.linspace(min(x), max(x), 1000)
 plt.plot(x, y, 'rx', label='Messwerte')
@@ -94,7 +95,7 @@ print('T=', T)
 U, I = np.genfromtxt('content/data7.txt', unpack=True)
 
 N = 1
-f = 0.32
+f = 0.35
 n = 0.28
 o = 5.7e-12
 
@@ -109,7 +110,7 @@ k = 1.381e-23
 h = 6.626e-34
 m = 9.109e-31
 
-A = - (k * T)/ e * np.log((I_s*10**(2) * h**3)/(4 * np.pi * e * m * k**2 * T**2))
+A = - (k * T)/ e * np.log((I_s * h**3)/(4 * f * np.pi * e * m * k**2 * T**2))
 
 
 print('A=', A)
