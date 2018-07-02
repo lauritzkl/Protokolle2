@@ -4,7 +4,8 @@ In diesem Versuch werden die durch thermische Elektronenemission erzeugten Elekt
 Es ist bekannt, dass Metalle eine gut elektrische Leitfähigkeit haben. Dies liegt an der gitterartigen Struktur der Metallatome.
 Die Leistungselektronen können sich im Metallinneren frei bewegen, da fast alle Atome ionisiert sind. Im Inneren herrscht gegenüber dem
 Außenraum ein Potential $\xi$.
-Dieses kann als ein Potentialtopf-Modell, was in Abbildung \ref{abb:1} zu sehen ist. Wenn ein Elektron aus diesem Potential austritt, muss
+Dieses kann als ein Potentialtopf-Modell angesehen werden, was in Abbildung \ref{abb:1} schematisch
+dargestellt ist. Wenn ein Elektron aus diesem Potential austritt, muss
 es die Austrittsarbeit $e_0 \xi$ aufbringen. Dabei ist $e_0$ die Elementarladung.
 \begin{figure}[H]
   \centering
@@ -13,14 +14,14 @@ es die Austrittsarbeit $e_0 \xi$ aufbringen. Dabei ist $e_0$ die Elementarladung
   \label{abb:1}
 \end{figure}
 Um Messungen durchführen zu können, muss zunächst die Apparatur näher erläutert werden.
-Es handelt sich, wie in  Abbildung \ref{abb:2} um eine Vakuum-Diode.
+Es handelt sich, wie in  Abbildung \ref{abb:2} zu sehen ist, um eine Vakuum-Diode.
 \begin{figure}[H]
   \centering
   \includegraphics[width=10 cm, height =5cm]{content/Aufbau.png}
   \caption{Darstellung einer Vakuum-Diode \cite{1}.}
   \label{abb:2}
 \end{figure}
-An der Kathode werden die frei erzeugte Elektronen durch den Heizstrom emittiert und mit einer Saugspannung zur
+An der Kathode werden die Elektronen durch den Heizstrom emittiert und mit einer Saugspannung zur
 Anode beschleunigt. Sie ist deshalb evakuiert, da sonst die freien Elektronen mit den Gasmolekülen wechselwirken.
 Eine typische Kennlinie zwischen Strom und Spannung ist in Abbildung \ref{abb:3} dargestellt.
 \begin{figure}[H]
@@ -36,7 +37,7 @@ statistisch verteilte Eigengeschwindigkeit der Elektronen zurückführen. Es err
 genug Elektronen, die mit mit einer endlichen Geschwindigkeit aus dem Metall austreten, die Anode.
 Der Zusammenhang zwischen der Anlaufstromstärke und der Spannung ist gegeben durch
 \begin{equation}
-  j(V) = \text{const} \cdot \textbf{exp}\Bigl(\frac{-e_0 V}{k_b T}\Bigr).
+  j(V) = \text{const} \cdot \exp\left(\frac{-e_0 V}{k_b T}\right).
   \label{eq:1}
 \end{equation}
 Dabei ist $V$ das äußere Potential bzw. die Spannung, $T$ die Temperatur und $k_b$ die Bolzmann-Konstante.\\
@@ -61,7 +62,7 @@ Die Elektronen erreichen alle die Anode und sind nur von der Austrittsarbeit $e_
 abhängig.
 Durch die Integration über jedes kleine Flächenelement ergibt sich die Richardson-Gleichung
 \begin{equation}
-  j(T) = 4 \pi \frac{e_0 m_0 k_b^2}{h^3} T^2 \textbf{exp}\Bigl(\frac{-e_0 \Phi}{k_bT}\Bigr).
+  j(T) = 4 \pi \frac{e_0 m_0 k_b^2}{h^3} T^2 \exp\left(\frac{-e_0 \Phi}{k_bT}\right).
   \label{eq:3}
 \end{equation}
 Dabei ist $h$ das Plancksche Wirkungsquantum.
