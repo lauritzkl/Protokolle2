@@ -40,6 +40,7 @@ def h(x3, e, f):
 params2, covariance_matrix2 = curve_fit(h, x3, y3)
 errors2 = np.sqrt(np.diag(covariance_matrix2))
 
+
 def j(x4, g, h):
     y4 = g*x4 + h
     return y4
@@ -83,7 +84,6 @@ print('c=', params1[0], '+-', errors1[0])
 print('e=', params2[0], '+-', errors2[0])
 print('g=', params3[0], '+-', errors3[0])
 print('i=', params4[0], '+-', errors4[0])
-
 #Berechnung zur Konstruktions
 
 x, y = np.genfromtxt('content/data6.txt', unpack=True)
@@ -92,6 +92,10 @@ def f(x, a, b):
     return y
 params, covariance_matrix = curve_fit(f, x, y)
 errors = np.sqrt(np.diag(covariance_matrix))
+
+m3 = ufloat(params[0], errors[0])
+Ud= (3.81/m3)*300
+
 x_plot = np.linspace(min(x), max(x), 1000)
 plt.plot(x, y, 'rp', label='Messwerte')
 plt.plot(x_plot, f(x_plot, *params), 'k-', label='Regression')
@@ -104,11 +108,10 @@ plt.savefig('plot2.pdf')
 plt.close()
 print('Darstellung der Konstruktion:')
 print('Steigung=', params[0], '+-', errors[0])
-
+print('Ablenkung=', Ud)
 #Mittelwert bestimmen
-x=np.array([29.33, 49.99, 79.32, 158,64])
+x=np.array([87.99, 99.98, 79.32, 79.32])
 print('Fehler=', np.mean(x), '+-', np.std(x, ddof=1) / np.sqrt(len(x)))
-
 #Versuch 2
 
 x, y = np.genfromtxt('content/data7.txt', unpack=True)
@@ -150,6 +153,18 @@ def k(x5, i, j):
 params4, covariance_matrix4 = curve_fit(k, x5, y5)
 errors4 = np.sqrt(np.diag(covariance_matrix4))
 
+d1 = ufloat(params[0], errors[0])
+D1= (8*250*d1**2 )/ 10**(-3)
+d2 = ufloat(params1[0], errors1[0])
+D2= (8*300*d2**2 )/ 10**(-3)
+d3 = ufloat(params2[0], errors2[0])
+D3= (8*350*d3**2 )/ 10**(-3)
+d4 = ufloat(params3[0], errors3[0])
+D4= (8*400*d4**2 )/ 10**(-3)
+d5 = ufloat(params4[0], errors4[0])
+D5= (8*430*d5**2 )/ 10**(-3)
+
+
 x_plot = np.linspace(min(x), max(x), 1000)
 x2_plot = np.linspace(min(x2), max(x2), 1000)
 x3_plot = np.linspace(min(x3), max(x3), 1000)
@@ -180,3 +195,9 @@ print('c=', params1[0], '+-', errors1[0])
 print('e=', params2[0], '+-', errors2[0])
 print('g=', params3[0], '+-', errors3[0])
 print('i=', params4[0], '+-', errors4[0])
+print('Fehlerdarstellung:')
+print('1=', D1)
+print('2=', D2)
+print('3=', D3)
+print('4=', D4)
+print('1=', D5)
