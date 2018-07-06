@@ -9,8 +9,8 @@ Sie sind in der Tabelle \ref{tab:1} dargestellt.
   \label{tab:1}
   \begin{tabular}{c c c c c c}
 \toprule
-%& \multicolumn{1}{c}{$U_B=\SI{200}{\volt}$} & \multicolumn{1}{c}{$U_B=\SI{250}{\volt}$} &\multicolumn{1}{c}{$U_B=\SI{300}{\volt}$}&\multicolumn{1}{c}{$U_B=\SI{400}{\volt}$}&\multicolumn{1}{c}{$U_B=\SI{500}{\volt}$}\\
-%\cmidrule(lr){2}\cmidrule(lr){3}\cmidrule(lr){4}\cmidrule(lr){5}
+& \multicolumn{1}{c}{$U_B=\SI{200}{\volt}$} & \multicolumn{1}{c}{$U_B=\SI{250}{\volt}$} &\multicolumn{1}{c}{$U_B=\SI{300}{\volt}$}&\multicolumn{1}{c}{$U_B=\SI{400}{\volt}$}&\multicolumn{1}{c}{$U_B=\SI{500}{\volt}$}\\
+\cmidrule(lr){2-2}\cmidrule(lr){3-3}\cmidrule(lr){4-4}\cmidrule(lr){5-5}\cmidrule(lr){6-6}
 $D \, / \, cm$ & $U_d \, / \, V$ & $U_d \, / \, V$ & $U_d \, / \, V$ &$U_d \, / \, V$ & $U_d \, / \, V$\\
 \midrule
 0     & 21,9  & 28,9  & 33,8  & -    & -   \\
@@ -25,11 +25,13 @@ $D \, / \, cm$ & $U_d \, / \, V$ & $U_d \, / \, V$ & $U_d \, / \, V$ &$U_d \, / 
 \bottomrule
   \end{tabular}
 \end{table}
+
+
 Nun werden die Parameter $D$ und $U_d$ gegeneinander aufgetragen.
 Dies ist in der Abbildung \ref{abb:6} dargestellt.
 \begin{figure}[H]
   \centering
-  \includegraphics[width=\textwidth]{plot1.pdf}
+  \includegraphics{plot1.pdf}
   \caption{Darstellung der Messdaten.}
   \label{abb:6}
 \end{figure}
@@ -207,9 +209,9 @@ in der Tabelle \ref{tab:6} dargestellt.
   \centering
   \caption{Darstellung der spezifische Ladung.}
   \label{tab:6}
-  \begin{tabular}{c c c c}
+  \begin{tabular}{c c c}
 \toprule
-$\text{Beschleunigungsspannung U_B}$&$\text{Steigung m} \,/\, \frac{1}{m\cdot mT}$ &$\frac{e_0}{m_0} \,/\, \frac{C}{kg}$\\
+$\text{Beschleunigungsspannung} U_B$ & $\text{Steigung m} \,/\, \frac{1}{m\cdot mT}$ &$\frac{e_0}{m_0} \,/\, \frac{C}{kg}$\\
 \midrule
 250 &$\num{12.81(41)}$ &-\\
 300 &$\num{11.65(43)}$ &-\\

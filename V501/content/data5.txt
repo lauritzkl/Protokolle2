@@ -1,4 +1,4 @@
-#Abstand/cm Spannung/V Ub=500
+#Spannung/V Abstand/cm Ub=500
 31.3  1.905
 21.2  2.54
 10.2  3.175
