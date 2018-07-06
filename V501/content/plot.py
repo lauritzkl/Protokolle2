@@ -203,6 +203,7 @@ print('4=', D4)
 print('5=', D5)
 
 
+
 # Winkelberechnung
 x=np.array([1.43, 1.27, 0.96, 0.96])
 y = np.mean(x)
