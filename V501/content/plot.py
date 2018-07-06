@@ -204,8 +204,12 @@ print('5=', D5)
 
 
 # Winkelberechnung
-x=np.array([82, 73, 55, 55])
-dx=ufloat(66.25, 6.75)
+x=np.array([1.43, 1.27, 0.96, 0.96])
+y = np.mean(x)
+dy = np.std(x, ddof=1) / np.sqrt(len(x))
+dx=ufloat(y, dy)
+
 B= 8.035/unumpy.cos(dx)
-print('Winkelfehler=', np.mean(x), '+-', np.std(x, ddof=1) / np.sqrt(len(x)))
+
+print('Winkelfehler=', y, '+-', dy)
 print('B=', B)
