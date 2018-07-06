@@ -201,3 +201,11 @@ print('2=', D2)
 print('3=', D3)
 print('4=', D4)
 print('5=', D5)
+
+
+# Winkelberechnung
+x=np.array([82, 73, 55, 55])
+dx=ufloat(66.25, 6.75)
+B= 8.035/unumpy.cos(dx)
+print('Winkelfehler=', np.mean(x), '+-', np.std(x, ddof=1) / np.sqrt(len(x)))
+print('B=', B)
