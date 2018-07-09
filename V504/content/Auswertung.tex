@@ -1,7 +1,7 @@
 \section{Auswertung}
 
 Zunächst werden die Kennlinien bei verschiedenen Heizleistungen bestimmt. Da
-die Temperatur nicht gemessen werden kann wird die Stromstärke notiert. Die
+die Temperatur nicht gemessen werden kann wird die Stromstärke und Spannung notiert. Die
 Messwerte der einzelnen Messungen sind in Tabelle \ref{tab:1} dargestellt.
 
 \begin{table}[H]
@@ -12,7 +12,7 @@ Messwerte der einzelnen Messungen sind in Tabelle \ref{tab:1} dargestellt.
 \toprule
 \multicolumn{2}{c}{$I=\SI{1.8}{\ampere}$} & \multicolumn{2}{c}{$I=\SI{1.9}{\ampere}$} & \multicolumn{2}{c}{$I=\SI{2.0}{\ampere}$} & \multicolumn{2}{c}{$I=\SI{2.2}{\ampere}$} & \multicolumn{2}{c}{$I=\SI{2.4}{\ampere}$}\\
 \cmidrule(lr){1-2}\cmidrule(lr){3-4}\cmidrule(lr){5-6}\cmidrule(lr){7-8}\cmidrule(lr){9-10}
-$U \, / \, V$ & $I \, / \, mA$ & $U \, / \, V$ & $I \, / \, mA$ &$U \, / \, V$ & $I \, / \, mA$ & $U \, / \, V$ & $I \, / \, mA$ & $U \, / \, V$ & $I \, / \, mA$ \\
+$U \, / \, \si{\volt}$ & $I \, / \, \si{\milli\ampere}$ & $U \, / \, \si{\volt}$ & $I \, / \, \si{\milli\ampere}$ &$U \, / \, \si{\volt}$ & $I \, / \, \si{\milli\ampere}$ & $U \, / \, \si{\volt}$ & $I \, / \, \si{\milli\ampere}$ & $U \, / \, \si{\volt}$ & $I \, / \, \si{\milli\ampere}$ \\
 \midrule
 0   & 0,000 & 0   & 0,000 & 0   & 0,000 & 0   & 0,000 & 0   & 0,000 \\
 5   & 0,001 & 5   & 0,000 & 5   & 0,000 & 5   & 0,013 & 2   & 0,004 \\
@@ -87,7 +87,7 @@ $I_s$ ablesen. Der Sättigungsstrom für die einzelnen Stromstärken sind in Tab
   \label{tab:2}
   \begin{tabular}{c c}
     \toprule
-    $I \, / \, A$ & $I_s \, / \, mA$ \\
+    $I \, / \, \si{\ampere}$ & $I_s \, / \, \si{\milli\ampere}$ \\
     \midrule
     1,8 & 0,018  \\
     1,9 & 0,044  \\
@@ -98,7 +98,7 @@ $I_s$ ablesen. Der Sättigungsstrom für die einzelnen Stromstärken sind in Tab
   \end{tabular}
 \end{table}
 
-Als nächstes wird das Raumladungsgebiet für die maximale Heizleistung, für $\SI{2.4}{\ampere}$,
+Als nächstes wird das Raumladungsgebiet für die maximale Heizleistung, bei $\SI{2.4}{\ampere}$,
 untersucht. Dazu werden die Messwerte aus Tabelle \ref{tab:1} aus dem Raumladungsgebiet, in der Abbildung \ref{abb:7},
 Graphisch dargestellt. Das Raumladungsgebiet geht bis $\SI{60}{\volt}$.
 Mit diesen Messwerten wird nun eine Ausgleichsrechnung durchgeführt mit Python 3.6.
@@ -108,8 +108,7 @@ Die verwendete Gleichung dabei lautet
   I(U) = a \cdot U^b.
 \end{equation*}
 
-Es wird der Exponent der Strom-Spannung Beziehung bestimmt und mit der Gleichung
-\ref{eq:2} verglichen.
+Es wird der Exponent der Strom-Spannung Beziehung bestimmt.
 
 \begin{figure}[H]
   \centering
@@ -118,15 +117,18 @@ Es wird der Exponent der Strom-Spannung Beziehung bestimmt und mit der Gleichung
   \label{abb:7}
 \end{figure}
 
-Damit ergibt sich der Exponent zu
+Damit ergeben sich die Parameter zu:
 
 \begin{equation*}
-  b = \num{1.165(3)}.
+  b = \num{1.425(16)}
+\end{equation*}
+\begin{equation*}
+  a = \num{3.61(21)e-3}
 \end{equation*}
 
-Das entspricht einer Abweichung zu dem Langmuir-Schottkyschen Raumladungsgesetz von $22,33 \%$.
 
-Daraufhin wird das Anlaufstromgebiet untersucht. Die Messwerte dieser Messung sind
+Daraufhin wird das Anlaufstromgebiet untersucht, welches von der Gleichung \ref{eq:1} beschrieben wird.
+Die Messwerte dieser Messung sind
 in der Tabelle \ref{tab:3} dargestellt. Da es einen Spannungsabfall am Innenwiderstand des
 Nanoamperemeter, der $\SI{1}{\mega\ohm}$ beträgt, gibt müssen die gemessenen Spannungswerte
 korrigiert werden mit der folgenden Gleichung
@@ -141,7 +143,7 @@ korrigiert werden mit der folgenden Gleichung
   \label{tab:3}
   \begin{tabular}{c c c}
     \toprule
-    $ U \, / \, V$ & $U_\text{korr} \, / \, V$ & $ I \, / \, nA$ \\
+    $ U \, / \, \si{\volt}$ & $U_\text{korr} \, / \, \si{\volt}$ & $ I \, / \, \si{\nano\ampere}$ \\
     \midrule
     0,0 & -0,135 & 135,0 \\
     0,1 & -0,005 & 105,0 \\
@@ -158,8 +160,15 @@ korrigiert werden mit der folgenden Gleichung
   \end{tabular}
 \end{table}
 
+Die ersten beiden Werte durch die Korrektur negativ werden, werden diese bei der
+Ausgleichsrechnung nicht betrachtet. Diese Werte liegen nicht mehr im Anlaufstromgebiet.
 Mit Hilfe dieser Messwerte wird nun die Temperatur $T$ der Kathode bestimmt.
-Dazu wird Gleichung \ref{eq:1} verwendet um eine Ausgleichsrechnung durchzuführen.
+Dazu wird die folgende Gleichung verwendet um eine Ausgleichsrechnung durchzuführen:
+
+\begin{equation*}
+  I(U) = a \cdot \exp(-b U)
+\end{equation*}
+
 Diese Ausgleichsrechnung wird wieder mit Python 3.6 durchgeführt. Die Ergebnisse sind
 in Abbildung \ref{abb:8} dargestellt.
 
@@ -170,10 +179,31 @@ in Abbildung \ref{abb:8} dargestellt.
   \label{abb:8}
 \end{figure}
 
+Die Parameter ergeben sich somit zu:
+
+\begin{equation*}
+  a = \SI{121.79(548)}{\nano\ampere}
+\end{equation*}
+\begin{equation*}
+  b = \SI{3.37(17)}{\per\volt}
+\end{equation*}
+
+Aus $b$ lässt sich nun die Temperatur bestimmen mithilfe der Gleichung \ref{eq:1}.
+
+\begin{equation*}
+  T = \frac{e_0}{k_b b}
+\end{equation*}
+
+Der Fehler wird mit der Gauß´schen Fehlerfortpflanzung bestimmt:
+
+\begin{equation*}
+  \Delta T = \sqrt{\left(-\frac{e_0}{k_b b^2}\right)^2 \cdot (\Delta b)^2}
+\end{equation*}
+
 Die Temperatur ergibt sich somit zu
 
 \begin{equation*}
-  T = \SI{4340(250)}{\kelvin}.
+  T = \SI{3440(170)}{\kelvin}.
 \end{equation*}
 
 Nun wird die Temperatur bei denen die einzelnen Kennlinien bestimmt wurden mittels
@@ -196,7 +226,7 @@ bestimmte Temperatur sind in Tabelle \ref{tab:4} gezeigt.
   \label{tab:4}
   \begin{tabular}{c c c}
     \toprule
-    $U \, / \, V$ & $I \, / \, A$ & $T \, / \, K$ \\
+    $U \, / \, \si{\volt}$ & $I \, / \, \si{\ampere}$ & $T \, / \, \si{\kelvin}$ \\
     \midrule
     1,8 & 3,9 & 1852,91 \\
     1,9 & 4,0 & 1896,01 \\
@@ -209,10 +239,10 @@ bestimmte Temperatur sind in Tabelle \ref{tab:4} gezeigt.
 
 
 Als letzte wird noch die Austrittsarbeit des Kathodenmaterials bestimmt. Dafür wird
-die Gleichung \ref{eq:3} nach der Austrittsarbeit $\Phi$ umgeformt
+die Gleichung \ref{eq:3} nach der Austrittsarbeit $e_0 \Phi$ umgeformt
 
 \begin{equation*}
-  \Phi = - \frac{k_b T}{e_0} \cdot \ln \left(\frac{I_s h^3}{4 \pi f e_0 m_0 k_b^2 T^2}\right).
+  e_0 \Phi = - k_b T \cdot \ln \left(\frac{I_s h^3}{4 \pi f e_0 m_0 k_b^2 T^2}\right).
 \end{equation*}
 
 Die Ergebnisse für die einzelnen Kennlinien sind in Tabelle \ref{tab:5} dargestellt.
@@ -223,7 +253,7 @@ Die Ergebnisse für die einzelnen Kennlinien sind in Tabelle \ref{tab:5} dargest
   \label{tab:5}
   \begin{tabular}{c c c}
     \toprule
-    $I_s \, / \, mA$ & $T \, / \, K$ & $\Phi \, / \, eV$ \\
+    $I_s \, / \, \si{\milli\ampere}$ & $T \, / \, \si{\kelvin}$ & $e_0 \Phi \, / \, \si{\eV}$ \\
     \midrule
     0,018 & 1892,91 & 4,994 \\
     0,044 & 1896,01 & 4,974 \\
@@ -235,18 +265,18 @@ Die Ergebnisse für die einzelnen Kennlinien sind in Tabelle \ref{tab:5} dargest
 \end{table}
 
 Aus den bestimmten Austrittsarbeiten wird nun der Mittelwert und die Standartabweichung
-mit den folgenden Gleichungen bestimmt:
+des Mittelwerts mit den folgenden Gleichungen bestimmt:
 
 \begin{equation*}
-    \bar{\Phi} = \frac{1}{5} \sum_{i=1}^{5} \Phi_i
+    \overline{(e_0\Phi)} = \frac{1}{5} \sum_{i=1}^{5} (e_0\Phi)_i
 \end{equation*}
 \begin{equation*}
-  \Delta \bar{\Phi} = \frac{1}{\sqrt{5}\sqrt{4}} \sqrt{\sum_{i=1}^{4}(\Phi_i-\bar{\Phi})^2}
+  \Delta \overline{(e_0\Phi)} = \frac{1}{\sqrt{5}\sqrt{4}} \sqrt{\sum_{i=1}^{4}\left((e_0\Phi)_i-\overline{(e_0\Phi)}\right)^2}
 \end{equation*}
 
 
 Damit ergibt sich die gemittelte Austrittsarbeit zu
 
 \begin{equation*}
-  \bar{\Phi} = \SI{5.095(60)}{\eV}.
+  \overline{(e_0\Phi)} = \SI{5.095(60)}{\eV}.
 \end{equation*}

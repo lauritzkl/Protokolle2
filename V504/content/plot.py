@@ -26,11 +26,16 @@ plt.plot(x3, y3, 'bx', label='$I = 2.0A$')
 plt.plot(x4, y4, 'gx', label='$I = 2.2A$')
 plt.plot(x5, y5, 'yx', label='$I = 2.4A$')
 
+plt.axhline(1.550, linestyle='dashed', color='yellow')
+plt.axhline(0.438, linestyle='dashed', color='green')
+plt.axhline(0.102, linestyle='dashed', color='blue')
+plt.axhline(0.044, linestyle='dashed', color='black')
+plt.axhline(0.018, linestyle='dashed', color='red')
 
 plt.legend()
 plt.grid()
-plt.ylabel(r'$I \, / \, mA$')
-plt.xlabel(r'$U \, / \, V$')
+plt.ylabel(r'$I \, / \, \text{mA}$')
+plt.xlabel(r'$U \, / \, \text{V}$')
 plt.tight_layout()
 plt.savefig('plot1.pdf')
 plt.close()
@@ -39,8 +44,8 @@ plt.close()
 
 x_1, y_1 = np.genfromtxt('content/data5.txt', unpack=True)
 
-x = x_1[0:31]
-y = y_1[0:31]
+x = x_1[0:19]
+y = y_1[0:19]
 
 def f(x, a, c, d):
     y = d * x**a + c
@@ -53,20 +58,23 @@ plt.plot(x, y, 'rx', label='Messwerte')
 plt.plot(x_plot, f(x_plot, *params), 'k-', label='Regression')
 plt.legend()
 plt.grid()
-plt.ylabel(r'$I \, / \, mA$')
-plt.xlabel(r'$U \, / \, V$')
+plt.ylabel(r'$I \, / \, \text{mA}$')
+plt.xlabel(r'$U \, / \, \text{V}$')
 plt.tight_layout()
 plt.savefig('plot2.pdf')
 plt.close()
 
-print('a=', params[0], '+-', errors[0])
+print('b=', params[0], '+-', errors[0])
+print('a=', params[2], '+-', errors[2])
 
-x_1, y = np.genfromtxt('content/data6.txt', unpack=True)
+x_2, y_1 = np.genfromtxt('content/data6.txt', unpack=True)
 #y = y_1 * 10**(-9)
 e = 1.602e-19
 k = 1.38e-23
-
+y = y_1[2:]
+x_1 = x_2[2:]
 x = x_1 - 10**(-3) * y
+
 
 def f(x, b, a):
     y = a * np.exp(-b * x)
@@ -84,12 +92,14 @@ plt.plot(x, y, 'rx', label='Messwerte')
 plt.plot(x_plot, f(x_plot, *params), 'k-', label='Regression')
 plt.legend()
 plt.grid()
-plt.ylabel(r'$I \, / \, nA$')
-plt.xlabel(r'$U \, / \, V$')
+plt.ylabel(r'$I \, / \, \text{nA}$')
+plt.xlabel(r'$U \, / \, \text{V}$')
 plt.tight_layout()
 plt.savefig('plot3.pdf')
 plt.close()
 
+print('a=', params[1], '+-', errors[1])
+print('b=', params[0], '+-', errors[0])
 print('T=', T)
 
 U, I = np.genfromtxt('content/data7.txt', unpack=True)
