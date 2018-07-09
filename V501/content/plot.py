@@ -164,6 +164,7 @@ D4= (8*400*d4**2 )/ 10**(-6)
 d5 = ufloat(params4[0], errors4[0])
 D5= (8*430*d5**2 )/ 10**(-6)
 
+D = np.array([1.59e11, 1.58e11, 1.61e11, 1.55e11, 1.54e11])
 
 x_plot = np.linspace(min(x), max(x), 1000)
 x2_plot = np.linspace(min(x2), max(x2), 1000)
@@ -203,6 +204,9 @@ print('4=', D4)
 print('5=', D5)
 
 
+
+print('Mittelwert der spezifischen Ladung:')
+print('D=', np.mean(D), '+-', np.std(D, ddof=1) / np.sqrt(len(D)))
 
 # Winkelberechnung
 x=np.array([1.43, 1.27, 0.96, 0.96])
