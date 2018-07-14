@@ -1,16 +1,16 @@
 \section{Auswertung}
 \subsection{Ablenkung im elektrischen Feld}
-Es werden die Messdaten Strahlablenkung $D$, Plattenspannung $U_d$ und die Beschleunigungsspannung $U_B$ notiert.
+Es werden die Messdaten der Strahlablenkung $D$, der Plattenspannung $U_d$ und die Beschleunigungsspannung $U_B$ notiert.
 Sie sind in der Tabelle \ref{tab:1} dargestellt.
 \begin{table}[H]
   \centering
-  \caption{Darstellung der Messwerte.}
+  \caption{Messdatendarstellung.}
   \label{tab:1}
   \begin{tabular}{c c c c c c}
 \toprule
 & \multicolumn{1}{c}{$U_B=\SI{200}{\volt}$} & \multicolumn{1}{c}{$U_B=\SI{250}{\volt}$} &\multicolumn{1}{c}{$U_B=\SI{300}{\volt}$}&\multicolumn{1}{c}{$U_B=\SI{400}{\volt}$}&\multicolumn{1}{c}{$U_B=\SI{500}{\volt}$}\\
 \cmidrule(lr){2-2}\cmidrule(lr){3-3}\cmidrule(lr){4-4}\cmidrule(lr){5-5}\cmidrule(lr){6-6}
-$D \, / \, cm$ & $U_d \, / \, V$ & $U_d \, / \, V$ & $U_d \, / \, V$ &$U_d \, / \, V$ & $U_d \, / \, V$\\
+$D \, / \, \si{\centi\meter}$ & $U_d \, / \, \si{\volt}$ & $U_d \, / \, \si{\volt}$ & $U_d \, / \, \si{\volt}$ &$U_d \, / \, \si{\volt}$ & $U_d \, / \, \si{\volt}$\\
 \midrule
 5.080 & 21,9  & 28,9  & 33,8  & -    & -   \\
 4.445 & 19,1  & 24,6  & 29,0  & -    & -   \\
@@ -24,24 +24,80 @@ $D \, / \, cm$ & $U_d \, / \, V$ & $U_d \, / \, V$ & $U_d \, / \, V$ &$U_d \, / 
 \bottomrule
   \end{tabular}
 \end{table}
-Nun werden die Parameter $D$ und $U_d$ gegeneinander aufgetragen.
-Dies ist in der Abbildung \ref{abb:6} dargestellt.
-\begin{figure}[H]
-  \centering
-  \includegraphics{plot1.pdf}
-  \caption{Darstellung der Messdaten.}
-  \label{abb:6}
-\end{figure}
-Die lineare Ausgleichsrechnung wurde mit Python 3.6 durchgeführt.
-Dazu wurde die Gleichung \ref{eq:1} verwendet:
+Für jede einzelne Beschleunigungsspannung $U_b$ werden die
+Parameter $D$ und $U_d$ gegeneinander aufgetragen.
+Die jeweils linearen Ausgleichsrechnungen wurde mit Python 3.6 durchgeführt.
+Für den Fit wird folgende Gleichung \ref{eq:1} verwendet:
 \begin{equation*}
   \underbrace{D}_{\mathclap{y}} = \underbrace{\frac{pL}{2dU_B}}_{\mathclap{m}} \cdot \underbrace{U_d}_{\mathclap{x}} + \, b
 \end{equation*}
-Die folgenden Steigungen $m_{1-5}$ sind in der Tabelle \ref{tab:2} dargestellt.
+Dabei ist $b$ der Y-Achsenschnitt.
 
+In der Abbildung \ref{abb:6} ist die Darstellung von der Beschleunigungsspannung $U_b=\SI{200}{\volt}$.
+\begin{figure}[H]
+  \centering
+  \includegraphics{plot1.pdf}
+  \caption{Darstellung von $U_b= \SI{200}{\volt}$.
+  \label{abb:6}
+\end{figure}
+Es ergibt sich hierfür die Parameter
+\begin{itemize}
+  \item $m=\SI{0.1587(22)}{\centi\meter\per\volt}$
+  \item $b=\SI{1.4835(0265)}{\centi\meter}$
+\end{itemize}
+In der nächsten Abbildung \ref{abb:7} ist die Darstellung von der Beschleunigungsspannung $U_b=\SI{250}{\volt}$.
+\begin{figure}[H]
+  \centering
+  \includegraphics{plot2.pdf}
+  \caption{Darstellung von $U_b=\SI{250}{\volt}$.
+  \label{abb:7}
+\end{figure}
+Es ergibt sich hierfür die Parameter
+\begin{itemize}
+  \item $m=\SI{0.1268(13)}{\centi\meter\per\volt}$
+  \item $b=\SI{1.3634(0211)}{\centi\meter}$
+\end{itemize}
+In der nächsten Abbildung \ref{abb:8} ist die Darstellung von der Beschleunigungsspannung $U_b=\SI{300}{\volt}$.
+\begin{figure}[H]
+  \centering
+  \includegraphics{plot3.pdf}
+  \caption{Darstellung von $U_b=\SI{300}{\volt}$.
+  \label{abb:8}
+\end{figure}
+Es ergibt sich hierfür die Parameter
+\begin{itemize}
+  \item $m=\SI{0.1051(12)}{\centi\meter\per\volt}$
+  \item $b=\SI{1.4275(0228)}{\centi\meter}$
+\end{itemize}
+In der nächsten Abbildung \ref{abb:9} ist die Darstellung von der Beschleunigungsspannung $U_b=\SI{400}{\volt}$.
+\begin{figure}[H]
+  \centering
+  \includegraphics{plot4.pdf}
+  \caption{Darstellung von $U_b=\SI{300}{\volt}$.
+  \label{abb:9}
+\end{figure}
+Es ergibt sich hierfür die Parameter
+\begin{itemize}
+  \item $m=\SI{0.0797(6)}{\centi\meter\per\volt}$
+  \item $b=\SI{1.3675(0108)}{\centi\meter}$
+\end{itemize}
+In der nächsten Abbildung \ref{abb:10} ist die Darstellung von der Beschleunigungsspannung $U_b=\SI{500}{\volt}$.
+\begin{figure}[H]
+  \centering
+  \includegraphics{plot5.pdf}
+  \caption{Darstellung von $U_b=\SI{500}{\volt}$.
+  \label{abb:10}
+\end{figure}
+Es ergibt sich hierfür die Parameter
+\begin{itemize}
+  \item $m=\SI{0.0596(3)}{\centi\meter\per\volt}$
+  \item $b=\SI{1.2963(0060)}{\centi\meter}$
+\end{itemize}
+Relevant für die Bestimmung der Konstruktionskonstante $a$ sind die jeweiligen Steigungen $m_i \,\text{für} \, i \in [1,2,3,4,5]$
+Sie werden in der folgenden Tabelle \ref{tab:2} erneut dargestellt.
 \begin{table}[H]
   \centering
-  \caption{Ergebnis der Ausgleichsrechnung.}
+  \caption{Ergebnis der jeweiligen Steigungen $m_i$.}
   \label{tab:2}
   \begin{tabular}{c c c}
 \toprule
@@ -57,12 +113,12 @@ $m_5$ & $\num{0.0596(3)}$ & 500\\
 \end{table}
 Die bestimmten Steigungen sind die Empfindlichkeiten $\frac{D}{U_d}$ der Kathodenstrahlröhre
 Diese werden nun gegen $\frac{1}{U_B}$ aufgetragen.
-Die Darstellung ist in Abbildung \ref{abb:7} zu sehen.
+Die Darstellung ist in Abbildung \ref{abb:11} zu sehen.
 \begin{figure}[H]
   \centering
-  \includegraphics[width=\textwidth]{plot2.pdf}
+  \includegraphics[width=\textwidth]{plot6.pdf}
   \caption{Darstellung zur Bestimmung der Konstruktionskonstanten $a$.}
-  \label{abb:7}
+  \label{abb:11}
 \end{figure}
 Auch hier wurde eine lineare Ausgleichsrechnung mit Python 3.6 durchgeführt.
 Dazu wurde die Gleichung \ref{eq:1} erneut verwendet:
@@ -73,6 +129,11 @@ Es folgt somit für die Konstruktionskonstante $a$
 \begin{equation*}
   a = \SI{32,59(72)}{\centi\meter}.
 \end{equation*}
+Für den Y-Achsenschnitt $b$
+\begin{equation*}
+  b = \SI{-0.00354(00252)}{\centi\meter\per\volt}
+\end{equation*}
+
 Der theoretische Wert kann mithilfe der Abbildung \ref{abb:5} bestimmt werden.
 Dabei ist
 \begin{itemize}
@@ -80,6 +141,10 @@ Dabei ist
   \item $L = \SI{15.33}{\centi\meter}$
   \item $d = \SI{0.665}{\centi\meter}$
 \end{itemize}
+Der $L$-Wert ergibt sich aus zwei Komponenten. Einmal der Abstand Kondensatorplatte bis
+zum Leuchtschirm, was $14,3 \si{\centi\meter}$ sind, und zum anderen noch die Länge
+der Kondensatorenplatten, was $1,03 \si{\centi\meter}$ ist.
+Der $d$-Wert ist der Mittelwert von den beiden Plattenabständen der Kondensatorenplatten.
 Es folgt somit für die Konstruktionskonstante
 \begin{equation*}
   a_{\text{Theo}} = \frac{pL}{2d} = \SI{21.9}{\centi\meter}
@@ -97,7 +162,7 @@ Die Ergebnisse sind in der Tabelle \ref{tab:3} dargestellt.
   \label{tab:3}
   \begin{tabular}{c c c}
 \toprule
-$\nu_{Sä} \,/\, \si{\hertz}$& $\text{Proportionalitätsfaktor} n$ & $\nu_{Si} \, /\, \si{\hertz}$\\
+$\nu_{Sä} \,/\, \si{\hertz}$& $\text{Proportionalitätsfaktor}$ & $\nu_{Si} \, /\, \si{\hertz}$\\
 \midrule
 29,33 & 3 & 87,99\\
 49,99 & 2 & 99,98\\
@@ -107,7 +172,7 @@ $\nu_{Sä} \,/\, \si{\hertz}$& $\text{Proportionalitätsfaktor} n$ & $\nu_{Si} \
   \end{tabular}
 \end{table}
 Die Ergebnisse werden nun gemittelt.
-Für den Mittelwert sowie die Standardabweichung werden die folgenden Gleichungen verwendet:
+Für den Mittelwert sowie Standardabweichung werden die folgenden Gleichungen verwendet:
 \begin{equation*}
     \bar{\nu}_{Si}= \frac{1}{N} \sum_{i=1}^{N} \nu_{Si,i}
 \end{equation*}
@@ -123,11 +188,11 @@ Es folgt für die Frequenz der Sinusspannung:
 Des Weiteren soll der Scheitelwert mithilfe der Strahlablenkung $D$ und der Konstruktionskonstante $a$ berechnet werden.
 Es wurde eine Beschleunigungsspannung $U_b = \SI{300}{\volt}$ angelegt. Die gemessene Konstruktionskonstante ist
 $a = \SI{32,59(72)}{\centi\meter}$.
-Bei den Messungen ergab sich eine konstante Strahlablenkung von $D = \SI{3.81}{\centi\meter}$.
+Bei den Messungen ergab sich eine konstante Strahlablenkung von $D = \SI{1.905}{\centi\meter}$.
 Nun kann die Gleichung \ref{eq:1} umgeformt werden nach  der Plattenspannung $U_d$.
 Es folgt:
 \begin{equation*}
-  U_d = \frac{D U_B}{a} = \SI{35.1(8)}{\volt}
+  U_d = \frac{D U_B}{a} = \SI{17.5(4)}{\volt}
 \end{equation*}
 Der Fehler lässt sich mithilfe der Gauß´schen Fehlerfortpflanzung wie gefolgt bestimmen
 \begin{equation}
@@ -135,18 +200,18 @@ Der Fehler lässt sich mithilfe der Gauß´schen Fehlerfortpflanzung wie gefolgt
 \end{equation}
 \subsection{Ablenkung im magnetischen Feld}
 Um die spezifische Ladung der Elektronen bestimmen zu können, werden zunächst
-die Messwerte der Ablenkung $D$, den Strom $I$, der durch die Helmholzspule geht, sowie die
+die Messwerte der Ablenkung $D$, des Stroms $I$, der durch die Helmholzspule geht, sowie der
 Beschleunigungsspannung $U_B$ notiert.
 Die Ergebnisse sind in der Tabelle \ref{tab:4} dargestellt.
 \begin{table}[H]
   \centering
-  \caption{Darstellung der Messergebnisse.}
+  \caption{Ergebnisse der Messdatenaufzeichnungen.}
   \label{tab:4}
   \begin{tabular}{c c c c c c}
 \toprule
 & \multicolumn{1}{c}{$U_B=\SI{200}{\volt}$} & \multicolumn{1}{c}{$U_B=\SI{250}{\volt}$} &\multicolumn{1}{c}{$U_B=\SI{300}{\volt}$}&\multicolumn{1}{c}{$U_B=\SI{400}{\volt}$}&\multicolumn{1}{c}{$U_B=\SI{500}{\volt}$}\\
 \cmidrule(lr){2-2}\cmidrule(lr){3-3}\cmidrule(lr){4-4}\cmidrule(lr){5-5}\cmidrule(lr){6-6}
-$D \, / \, cm$ & $I \, / \, A$ & $I \, / \, A$ & $I \, / \, A$ &$I \, / \, A$ & $I \, / \, A$\\
+$D \, / \, \si{\centi\meter}$ & $I \, / \, \si{\ampere}$ & $I \, / \, \si{\ampere}$ & $I \, / \, \si{\ampere}$ &$I \, / \, \si{\ampere}$ & $I \, / \, \si{\ampere}$\\
 \midrule
 0,635 & 0,30  & 0,30 & 0,40 & 0,40& 0,40\\
 1,270 & 0,60  & 0,65 & 0,75 & 0,75& 0,80\\
@@ -163,16 +228,16 @@ Für das magnetische Feld $B$ wird die Gleichung \ref{eq:4} verwendet. Dabei ist
 Windungszahl $N = 20 $ und der Spulenradius $R = \SI{28.2}{\centi\meter}$.
 Außerdem wird $\frac{D}{L^2+D^2}$ für $L = \SI{17.5}{\centi\meter}$ bestimmt, um später
 mit der Gleichung \ref{eq:3} eine Ausgleichsrechnung durchführen zu können.
-Die Ergebnisse sind in der Tabelle \ref{tab:5} dargestellt.
+Die Zwischenergebnisse sind in der Tabelle \ref{tab:5} dargestellt.
 \begin{table}[H]
   \centering
-  \caption{Darstellung der wichtigen Ergebnisse.}
+  \caption{Darstellung der Zwischenergebnisse.}
   \label{tab:5}
   \begin{tabular}{c c c c c c}
 \toprule
 & \multicolumn{1}{c}{$U_B=\SI{200}{\volt}$} & \multicolumn{1}{c}{$U_B=\SI{250}{\volt}$} &\multicolumn{1}{c}{$U_B=\SI{300}{\volt}$}&\multicolumn{1}{c}{$U_B=\SI{400}{\volt}$}&\multicolumn{1}{c}{$U_B=\SI{500}{\volt}$}\\
 \cmidrule(lr){2-2}\cmidrule(lr){3-3}\cmidrule(lr){4-4}\cmidrule(lr){5-5}\cmidrule(lr){6-6}
-$\frac{D}{L^2+D^2} \, /\, \frac{1}{m}$ & $B \,/\, mT$ & $B \,/\, mT$ &$B \,/\, mT$ &$B \,/\, mT$ &$B \,/\, mT$\\
+$\frac{D}{L^2+D^2} \, /\, \si{\per\meter}$ & $B \,/\, \si{\milli\tesla}$ & $B \,/\, \si{\milli\tesla}$ &$B \,/\, \si{\milli\tesla}$ &$B \,/\, \si{\milli\tesla}$ &$B \,/\, \si{\milli\tesla}$\\
 \midrule
 0,31 & 0,01913 & 0,01913 & 0,02551 & 0,02551 & 0,02551\\
 0,62 & 0,03826 & 0,04145 & 0,04783 & 0,04783 & 0,05102\\
@@ -185,19 +250,79 @@ $\frac{D}{L^2+D^2} \, /\, \frac{1}{m}$ & $B \,/\, mT$ & $B \,/\, mT$ &$B \,/\, m
 \bottomrule
   \end{tabular}
 \end{table}
-Nun werden die Daten aus der Tabelle \ref{tab:5} gegeneinander aufgetragen und
-in der Abbildung \ref{abb:8} graphisch dargestellt.
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=\textwidth]{plot3.pdf}
-  \caption{Darstellung der Messergebnisse.}
-  \label{abb:8}
-\end{figure}
-Mit Python 3.6 wurde eine lineare Ausgleichsrechnung durchgeführt.
+Nun werden die Daten aus der Tabelle \ref{tab:5} gegeneinander aufgetragen.
+Mit Python 3.6 wurde jeweils eine lineare Ausgleichsrechnung durchgeführt.
 Dazu wurde die Gleichung \ref{eq:3} verwendet:
 \begin{equation*}
   \underbrace{\frac{D}{L^2+D^2}}_{\mathclap{y}} = \underbrace{\frac{1}{\sqrt{8U_B}} \sqrt{\frac{e_0}{m_0}}}_{\mathclap{m}} \cdot \underbrace{B}_{\mathclap{x}} + b
 \end{equation*}
+Dabei ist $b$ der Y-Achsenschnitt.
+Für die erste Messdatenreihe wird eine Beschleunigungsspannung von $U_b=\SI{250}{\volt}$ verwendet.
+Die Darstellung ist in Abbildung \ref{abb:12} zu sehen.
+\begin{figure}[H]
+  \centering
+  \includegraphics{plot7.pdf}
+  \caption{Darstellung von $U_b=\SI{250}{\volt}$.
+  \label{abb:12}
+\end{figure}
+Die Parameter ergeben sich hierfür
+\begin{itemize}
+  \item $m = \SI{8.93(23)}{\per\meter\milli\Tesla}$
+  \item $b =\SI{0.07(02)}{\per\meter}$
+\end{itemize}
+Für nächste wurde eine Beschleunigungsspannung von $U_b = \SI{300}{\volt}$ verwendet.
+Sie ist in der Abbildung \ref{abb:13} dargestellt.
+\begin{figure}[H]
+  \centering
+  \includegraphics{plot8.pdf}
+  \caption{Darstellung von $U_b=\SI{250}{\volt}$.
+  \label{abb:13}
+\end{figure}
+Die Parameter ergeben sich hierfür
+\begin{itemize}
+  \item $m = \SI{8.12(25)}{\per\meter\milli\Tesla}$
+  \item $b =\SI{0.09(03)}{\per\meter}$
+\end{itemize}
+Für nächste wurde eine Beschleunigungsspannung von $U_b = \SI{350}{\volt}$ verwendet.
+Sie ist in der Abbildung \ref{abb:14} dargestellt.
+\begin{figure}[H]
+  \centering
+  \includegraphics{plot9.pdf}
+  \caption{Darstellung von $U_b=\SI{350}{\volt}$.
+  \label{abb:14}
+\end{figure}
+Die Parameter ergeben sich hierfür
+\begin{itemize}
+  \item $m = \SI{7.58(19)}{\per\meter\milli\Tesla}$
+  \item $b =\SI{0.05(02)}{\per\meter}$
+\end{itemize}
+Für nächste wurde eine Beschleunigungsspannung von $U_b = \SI{400}{\volt}$ verwendet.
+Sie ist in der Abbildung \ref{abb:15} dargestellt.
+\begin{figure}[H]
+  \centering
+  \includegraphics{plot10.pdf}
+  \caption{Darstellung von $U_b=\SI{400}{\volt}$.
+  \label{abb:15}
+\end{figure}
+Die Parameter ergeben sich hierfür
+\begin{itemize}
+  \item $m = \SI{7.13(17)}{\per\meter\milli\Tesla}$
+  \item $b =\SI{0.07(02)}{\per\meter}$
+\end{itemize}
+Für nächste wurde eine Beschleunigungsspannung von $U_b = \SI{430}{\volt}$ verwendet.
+Sie ist in der Abbildung \ref{abb:16} dargestellt.
+\begin{figure}[H]
+  \centering
+  \includegraphics{plot11.pdf}
+  \caption{Darstellung von $U_b=\SI{430}{\volt}$.
+  \label{abb:16}
+\end{figure}
+Die Parameter ergeben sich hierfür
+\begin{itemize}
+  \item $m = \SI{6.87(16)}{\per\meter\milli\Tesla}$
+  \item $b =\SI{0.07(02)}{\per\meter}$
+\end{itemize}
+
 Die Ergebnisse für die Bestimmung der spezifische Ladung $\frac{e_0}{m_0}$ werden
 in der Tabelle \ref{tab:6} dargestellt. Dabei wurde folgende Rechnung verwendet:
 \begin{equation*}
@@ -207,7 +332,8 @@ Der Fehler lässt sich mit der Gauß´schen Fehlerfortpflanzung bestimmen
 \begin{equation*}
   \Delta \frac{e_0}{m_0} = \sqrt{(16 \cdot U_b \cdot m \cdot \Delta m)^2}.
 \end{equation*}
-
+Ebenso werden die wichtigen Parameter aus der Messdatenreihe in der Tabelle \ref{tab:6}
+dargestellt.
 
 \begin{table}[H]
   \centering
@@ -220,13 +346,13 @@ $\text{Beschleunigungsspannung}\, U_B \,/\, V$ & $\text{Steigung m} \,/\, \frac{
 250 &$\num{8.93(23)}$ &$\num{1.59(8)}$ &  9,66\\
 300 &$\num{8.12(25)}$ &$\num{1.58(10)}$& 10,23\\
 350 &$\num{7.58(19)}$ &$\num{1.61(8)}$ &  8,52\\
-400 &$\num{6.97(64)}$ &$\num{1.55(29)}$& 11,93\\
-430 &$\num{6.69(64)}$ &$\num{1.54(30)}$& 12,50\\
+400 &$\num{7.13(17)}$ &$\num{1.63(8)}$& 7,39\\
+430 &$\num{6.87(16)}$ &$\num{1.62(8)}$& 7,95\\
 \bottomrule
   \end{tabular}
 \end{table}
 
-Aus den bestimmten spezifischen Ladungen wird nun der Mittelwert und die Standardabweichung
+Aus den bestimmten spezifischen Ladungen wird nun der Mittelwert und Standardabweichung
 bestimmt mit den folgenden Gleichungen.
 
 \begin{equation*}
@@ -239,7 +365,7 @@ bestimmt mit den folgenden Gleichungen.
 Der Mittelwert ergibt sich somit zu:
 
 \begin{equation*}
-  \overline{\frac{e_0}{m_0}} = \SI{1.574(12)e11}{\coulomb\per\kilo\gram}
+  \overline{\frac{e_0}{m_0}} = \SI{1.606(92)e11}{\coulomb\per\kilo\gram}
 \end{equation*}
 
 Zuletzt soll die Totalintensität des Erdmagnetfeldes errechnet werden.
@@ -251,15 +377,14 @@ Mit einem gemessenen Spulenstrom von
 \end{equation*}
 folgt mit Gleichung \ref{eq:4} für die Magnetfeldstärke:
 \begin{equation*}
-  B_H =\SI{8.035}{\micro\tesla}.
+  B_\text{H} =\SI{8.035}{\micro\tesla}.
 \end{equation*}
-Zu beachten ist, dass die Magnetfeldstärke $B_H$ die horizontale Komponente des Erdmagnetfelds ist.
-Wichtig hierbei ist unter welchem Winkel sich das Erdmagnetfeld ausrichtet.
-Die gemessenen Winkeln zwischen Erdmagnetfeld und der horizontalen Komponente des Magnetfeldes
-sind in der Tabelle \ref{tab:7} dargestellt.
+Zu beachten ist, dass die Magnetfeldstärke $B_\text{H}$ die horizontale Komponente des Erdmagnetfelds ist.
+Wichtig hierbei ist in welchem Winkel das Erdmagnetfeld zum Erdboden steht.
+Die gemessenen Winkeln sind in der Tabelle \ref{tab:7} dargestellt.
 \begin{table}[H]
   \centering
-  \caption{Messung des Winkels an verschiedenen Stellen.}
+  \caption{Messung des Winkels an verschiedenen Orten.}
   \label{tab:7}
   \begin{tabular}{c}
 \toprule
@@ -272,24 +397,24 @@ $\text{Winkel}\, \Phi \,/\, \circ$\\
 \bottomrule
   \end{tabular}
 \end{table}
-Mit den folgenden Gleichungen wird der Mittelwert sowie die Standardabweichung berechnet.
+Mit den folgenden Gleichungen wird der Mittelwert sowie Standardabweichung berechnet.
 \begin{equation*}
   \bar{\Phi}= \frac{1}{N} \sum_{i=1}^{N} \Phi_{i}
 \end{equation*}
 \begin{equation*}
 \Delta \bar{\Phi} = \frac{1}{\sqrt{N}\sqrt{N-1}} \sqrt{\sum_{i}(\Phi_{i}-\bar{\Phi})^2}
 \end{equation*}
-Es folgt somit für den Winkel:
+Es folgt somit für den Inklinationswinkel:
 \begin{equation*}
   \Phi = \SI{66.25(675)}{\degree}
 \end{equation*}
 Aus der Überlegung, dass sich das Erdmagnetfeld in zwei Komponente zerlegen lässt, folgt für die Berechnung des Erdmagnetfelds
 \begin{equation*}
-  B = \frac{B_H}{cos(\Phi)}
+  B = \frac{B_H}{\cos(\Phi)}
 \end{equation*}
 Auch hier lässt sich der Fehler mithilfe der Gauß´schen Fehlerfortpflanzung berechnen
 \begin{equation*}
-  \Delta B = \sqrt{\Bigl(\frac{B_H sin(\Phi)}{cos^2(\Phi)} \cdot \Delta \Phi\Bigr)^2}
+  \Delta B = \sqrt{\Bigl(\frac{B_\text{H} \sin(\Phi)}{\cos^2(\Phi)} \cdot \Delta \Phi\Bigr)^2}
 \end{equation*}
 Somit ergibt sich für das Erdmagnetfeld:
 \begin{equation*}
