@@ -27,7 +27,7 @@ $D \, / \, \si{\centi\meter}$ & $U_d \, / \, \si{\volt}$ & $U_d \, / \, \si{\vol
 Für jede einzelne Beschleunigungsspannung $U_b$ werden die
 Parameter $D$ und $U_d$ gegeneinander aufgetragen.
 Die jeweils linearen Ausgleichsrechnungen wurde mit Python 3.6 durchgeführt.
-Für den Fit wird folgende Gleichung \ref{eq:1} verwendet:
+Für den Fit wird Gleichung \ref{eq:1} verwendet:
 \begin{equation*}
   \underbrace{D}_{\mathclap{y}} = \underbrace{\frac{pL}{2dU_B}}_{\mathclap{m}} \cdot \underbrace{U_d}_{\mathclap{x}} + \, b
 \end{equation*}
@@ -93,7 +93,7 @@ Es ergibt sich hierfür die Parameter
   \item $m=\SI{0.0596(3)}{\centi\meter\per\volt}$
   \item $b=\SI{1.2963(0060)}{\centi\meter}$
 \end{itemize}
-Relevant für die Bestimmung der Konstruktionskonstante $a$ sind die jeweiligen Steigungen $m_i \,\text{für} \, i \in [1,2,3,4,5]$
+Relevant für die Bestimmung der Konstruktionskonstante $a$ sind die jeweiligen Steigungen $m_i \,\text{für} \, i \in [1,2,3,4,5]$.
 Sie werden in der folgenden Tabelle \ref{tab:2} erneut dargestellt.
 \begin{table}[H]
   \centering
@@ -111,7 +111,7 @@ $m_5$ & $\num{0.0596(3)}$ & 500\\
 \bottomrule
   \end{tabular}
 \end{table}
-Die bestimmten Steigungen sind die Empfindlichkeiten $\frac{D}{U_d}$ der Kathodenstrahlröhre
+Die bestimmten Steigungen sind die Empfindlichkeiten $\frac{D}{U_d}$ der Kathodenstrahlröhre.
 Diese werden nun gegen $\frac{1}{U_B}$ aufgetragen.
 Die Darstellung ist in Abbildung \ref{abb:11} zu sehen.
 \begin{figure}[H]
@@ -270,7 +270,7 @@ Die Parameter ergeben sich hierfür
   \item $m = \SI[per-mode=fraction]{8.93(23)}{\per\meter\per\milli\tesla}$
   \item $b =\SI[per-mode=fraction]{0.07(02)}{\per\meter}$
 \end{itemize}
-Für nächste wurde eine Beschleunigungsspannung von $U_b = \SI{300}{\volt}$ verwendet.
+Für die nächste wurde eine Beschleunigungsspannung von $U_b = \SI{300}{\volt}$ verwendet.
 Sie ist in der Abbildung \ref{abb:13} dargestellt.
 \begin{figure}[H]
   \centering
@@ -283,7 +283,7 @@ Die Parameter ergeben sich hierfür
   \item $m = \SI[per-mode=fraction]{8.12(25)}{\per\meter\per\milli\tesla}$
   \item $b =\SI[per-mode=fraction]{0.09(03)}{\per\meter}$
 \end{itemize}
-Für nächste wurde eine Beschleunigungsspannung von $U_b = \SI{350}{\volt}$ verwendet.
+Für die nächste wurde eine Beschleunigungsspannung von $U_b = \SI{350}{\volt}$ verwendet.
 Sie ist in der Abbildung \ref{abb:14} dargestellt.
 \begin{figure}[H]
   \centering
@@ -296,7 +296,7 @@ Die Parameter ergeben sich hierfür
   \item $m = \SI[per-mode=fraction]{7.58(19)}{\per\meter\per\milli\tesla}$
   \item $b =\SI[per-mode=fraction]{0.05(02)}{\per\meter}$
 \end{itemize}
-Für nächste wurde eine Beschleunigungsspannung von $U_b = \SI{400}{\volt}$ verwendet.
+Für die nächste wurde eine Beschleunigungsspannung von $U_b = \SI{400}{\volt}$ verwendet.
 Sie ist in der Abbildung \ref{abb:15} dargestellt.
 \begin{figure}[H]
   \centering
@@ -309,7 +309,7 @@ Die Parameter ergeben sich hierfür
   \item $m = \SI[per-mode=fraction]{7.13(17)}{\per\meter\per\milli\tesla}$
   \item $b =\SI[per-mode=fraction]{0.07(02)}{\per\meter}$
 \end{itemize}
-Für nächste wurde eine Beschleunigungsspannung von $U_b = \SI{430}{\volt}$ verwendet.
+Für die nächste wurde eine Beschleunigungsspannung von $U_b = \SI{430}{\volt}$ verwendet.
 Sie ist in der Abbildung \ref{abb:16} dargestellt.
 \begin{figure}[H]
   \centering
@@ -326,7 +326,7 @@ Die Parameter ergeben sich hierfür
 Die Ergebnisse für die Bestimmung der spezifische Ladung $\frac{e_0}{m_0}$ werden
 in der Tabelle \ref{tab:6} dargestellt. Dabei wurde folgende Rechnung verwendet:
 \begin{equation*}
-  \frac{e_0}{m_0} = 8 \cdot U_B \cdot m_{1-5}^2
+  \frac{e_0}{m_0} = 8 \cdot U_B \cdot m_{i}^2 \,\,\, \text{für} \,\,\, i \in [1,2,3,4,5]
 \end{equation*}
 Der Fehler lässt sich mit der Gauß´schen Fehlerfortpflanzung bestimmen
 \begin{equation*}
